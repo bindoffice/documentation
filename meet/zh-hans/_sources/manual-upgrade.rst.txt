@@ -1,0 +1,15 @@
+.. _help-manual-upgrade:
+
+.. _manual-upgrade:
+
+
+Manual upgrade
+----------------------------------------------------------------------------
+
+Replace the binary file bind-meetserver
+=================================================
+
+
+
+Restart bind-meetserver
+========================

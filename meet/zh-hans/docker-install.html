@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>docker 安装 &#8212; bind-meet  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=ff1e3513" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="升级" href="docker-upgrade.html" />
+    <link rel="prev" title="防火墙配置" href="firewall.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="docker-upgrade.html" title="升级"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="firewall.html" title="防火墙配置"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">bind-meet  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">docker 安装</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="docker-install">
+<span id="help-docker-install"></span><span id="id1"></span><h1>docker 安装<a class="headerlink" href="#docker-install" title="Link to this heading">¶</a></h1>
+<section id="requirements">
+<h2>0. 环境要求<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
+<p>最低1G内存 1核CPU linux 64位系统</p>
+</section>
+<section id="configure-dns">
+<h2>1. 配置DNS<a class="headerlink" href="#configure-dns" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>在域名服务提供商或者DNS解析服务中配置域名的一条A记录指向服务器的IP</p>
+<p>例如</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>主机名</p></th>
+<th class="head"><p>记录类型</p></th>
+<th class="head"><p>记录值</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>meet</p></td>
+<td><p>A</p></td>
+<td><p>x.x.x.x</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>主机名可以为任意二级域名前缀，这里我们使用meet</p></li>
+<li><p>example.com 是你的域名</p></li>
+<li><p>x.x.x.x 是服务器的公网IP地址</p></li>
+<li><p>访问地址是 <a class="reference external" href="https://meet.example.com/meet">https://meet.example.com/meet</a></p></li>
+</ul>
+</section>
+<section id="install-docker-git">
+<h2>2. 安装 docker, git<a class="headerlink" href="#install-docker-git" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If already installed, skip</span>
+
+mkdir<span class="w"> </span>pkgs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pkgs
+wget<span class="w"> </span><span class="s1">&#39;https://download.docker.com/linux/static/stable/x86_64/docker-26.1.4.tgz&#39;</span>
+tar<span class="w"> </span>xf<span class="w"> </span>docker-26.1.4.tgz<span class="p">;</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>docker/*
+sudo<span class="w"> </span>cp<span class="w"> </span>docker/*<span class="w"> </span>/usr/local/bin/
+
+curl<span class="w"> </span>-SL<span class="w"> </span>https://github.com/docker/compose/releases/download/v2.27.1/docker-compose-linux-x86_64<span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/docker-compose
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>/usr/local/bin/docker-compose
+
+yum<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span><span class="c1"># centos</span>
+apt<span class="w"> </span>install<span class="w"> </span>git<span class="w">  </span><span class="c1"># ubuntu/debian</span>
+
+<span class="c1"># start docker daemon</span>
+sudo<span class="w"> </span>dockerd<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+</section>
+<section id="install">
+<h2>3. 安装<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># github 国外用户使用github更快</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/BindOffice/bind-docker.git
+
+<span class="c1"># gitee 国内用户使用gitee更快</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/hedwi/bind-docker.git
+
+<span class="nb">cd</span><span class="w"> </span>bind-docker/meet
+cp<span class="w"> </span>env.example<span class="w"> </span>.env
+
+<span class="c1"># Modify the .env configuration</span>
+
+make
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="/document/meet/zh-hans/meet_env.html">配置文件示例</a></p></li>
+<li><p><a class="reference external" href="/document/meet/en-us/meet_env.html">Configuration file example</a></p></li>
+</ul>
+</section>
+<section id="automatically-generate-free-ssl-certificates">
+<h2>4. 自动生成免费SSL证书<a class="headerlink" href="#automatically-generate-free-ssl-certificates" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>cert
+</pre></div>
+</div>
+</section>
+<section id="restart-nginx">
+<h2>5. 重启nginx<a class="headerlink" href="#restart-nginx" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>down<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make
+</pre></div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of bind-meet"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">docker 安装</a><ul>
+<li><a class="reference internal" href="#requirements">0. 环境要求</a></li>
+<li><a class="reference internal" href="#configure-dns">1. 配置DNS</a></li>
+<li><a class="reference internal" href="#install-docker-git">2. 安装 docker, git</a></li>
+<li><a class="reference internal" href="#install">3. 安装</a></li>
+<li><a class="reference internal" href="#automatically-generate-free-ssl-certificates">4. 自动生成免费SSL证书</a></li>
+<li><a class="reference internal" href="#restart-nginx">5. 重启nginx</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="firewall.html"
+                          title="previous chapter">防火墙配置</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="docker-upgrade.html"
+                          title="next chapter">升级</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="docker-upgrade.html" title="升级"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="firewall.html" title="防火墙配置"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">bind-meet  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">docker 安装</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2024, Hedwi.
+      Last updated on 2026-03-22 21:20:27.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    </div>
+  </body>
+</html>
