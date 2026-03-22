@@ -7,11 +7,11 @@ BindOffice 办公套件私有部署文档
 
 .. raw:: html
 
-      <a target="_blank" href="https://hedwi.com" >BindOffice官网</a>
+      <a target="_blank" href="https://bindoffice.com" >BindOffice官网</a>
       <br/>
-      <a href="/document/mail-suite/zh-hans/" >中文版</a>
+      <a href="/documentation/office/zh-hans/" >中文版</a>
       <br/>
-      <a href="/document/mail-suite/en-us/" >English version</a>
+      <a href="/documentation/office/en-us/" >English version</a>
 
       <br/>
 
