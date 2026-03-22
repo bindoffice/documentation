@@ -1,0 +1,304 @@
+.. _api_contacts:
+
+.. _api-contacts-example:
+
+.. _contact.list:
+
+list contact
+-------------------------------------------------------------
+interface address:
+    * /api/contact/list
+HTTP request method:
+    * GET
+request params:
+    * label_id (query, optional): 标签 ID，如个人/星标/团队等
+    * page (query, optional): 页码，默认 1
+    * page_count (query, optional): 每页条数，默认 100
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/contact/list?label_id=1&page=1&page_count=20"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "list": [ { "id": "1", "name": "", "email": "", "phone": "" } ] },
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+
+create contact
+-------------------------------------------------------------
+interface address:
+    * /api/contact/create
+HTTP request method:
+    * POST
+request params:
+    * first_name (form, optional): 名
+    * last_name (form, optional): 姓
+    * nick_name (form, optional): 昵称
+    * email (form, optional): 邮箱
+    * phone (form, optional): 电话
+    * birthday (form, optional): 生日
+    * lunar_birthday (form, optional): 农历生日
+    * wechat (form, optional): 微信
+    * company (form, optional): 公司
+    * title (form, optional): 职位
+    * 至少一项非空
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/create" -d "first_name=John&last_name=Doe&email=john@example.com"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": {},
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+
+search contact
+-------------------------------------------------------------
+interface address:
+    * /api/contact/search
+HTTP request method:
+    * GET 或 POST
+request params:
+    * 查询关键词等（见实现）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/search" -d "keyword=john"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "list": [] },
+          "code": 0,
+          "message": "OK"
+        }
+
+
+update contact
+-------------------------------------------------------------
+interface address:
+    * /api/contact/update
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 联系人 ID
+    * 其他字段同 create
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/update" -d "id=1&first_name=Jane"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+
+
+get contact detail
+-------------------------------------------------------------
+interface address:
+    * /api/contact/detail/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 联系人 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/contact/detail/1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "id": "1", "name": "", "email": "", "phone": "", "company": "" },
+          "code": 0,
+          "message": "OK"
+        }
+
+
+
+delete contact
+-------------------------------------------------------------
+interface address:
+    * /api/contact/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 联系人 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/delete" -d "id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+list contact label
+-------------------------------------------------------------
+interface address:
+    * /api/contact/label/list
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/contact/label/list"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": [ { "id": "1", "name": "" } ],
+          "code": 0,
+          "message": "OK"
+        }
+
+create contact label
+-------------------------------------------------------------
+interface address:
+    * /api/contact/label/create
+HTTP request method:
+    * POST
+request params:
+    * name (form, required): 标签名称
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/label/create" -d "name=同事"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+delete contact label
+-------------------------------------------------------------
+interface address:
+    * /api/contact/label/deletelabel
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 联系人 ID，多个用逗号分隔
+    * label_id (form, required): 要移除的标签 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/label/deletelabel" -d "id=1&label_id=2"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+apply contact label
+-------------------------------------------------------------
+interface address:
+    * /api/contact/label/applylabel
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 联系人 ID，多个用逗号分隔
+    * label_id (form, required): 标签 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/label/applylabel" -d "id=1,2&label_id=3"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+modify contact starred state
+-------------------------------------------------------------
+interface address:
+    * /api/contact/label/starredstate
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 联系人 ID
+    * starred (form, required): 星标状态，true/false
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/contact/label/starredstate" -d "id=1&starred=true"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }

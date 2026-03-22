@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>列出笔记 &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="用户与设置相关 API" href="api_user_setting.html" />
+    <link rel="prev" title="获取演示详情" href="api_slides.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_user_setting.html" title="用户与设置相关 API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_slides.html" title="获取演示详情"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出笔记</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="list-note">
+<span id="note-list"></span><span id="api-note-example"></span><span id="api-note"></span><h1>列出笔记<a class="headerlink" href="#list-note" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/list</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>label (query, optional): 标签/视图，如 inbox / starred / important / archive</p></li>
+<li><p>page / page_count (query, optional): 分页</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/note/list&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-note">
+<span id="note-create"></span><h1>创建笔记<a class="headerlink" href="#create-note" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/create</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>title (form, optional): 标题</p></li>
+<li><p>content (form, optional): 内容</p></li>
+<li><p>labels (form, optional): 标签 ID 逗号分隔</p></li>
+<li><p>is_inbox / is_important / is_starred (form, optional): true/false</p></li>
+<li><p>title 与 content 至少一项</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/note/create&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;title=标题&amp;content=内容&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-note-detail">
+<span id="note-detail"></span><h1>获取笔记详情<a class="headerlink" href="#get-note-detail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/detail/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (path): 笔记 ID</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/note/detail/:id&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-note">
+<span id="note-delete"></span><h1>删除笔记<a class="headerlink" href="#delete-note" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 笔记 ID，多个逗号分隔</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/note/delete&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-note">
+<span id="note-update"></span><h1>update note<a class="headerlink" href="#update-note" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/update</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 笔记 ID</p></li>
+<li><p>title (form, optional): 标题</p></li>
+<li><p>content (form, optional): 内容</p></li>
+<li><p>其他字段见实现</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/note/update&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;title=新标题&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="archive-note">
+<span id="note-archive"></span><h1>归档笔记<a class="headerlink" href="#archive-note" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/archive</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/note/archive&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="unarchive-note">
+<span id="note-unarchive"></span><h1>取消归档笔记<a class="headerlink" href="#unarchive-note" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/unarchive</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/note/unarchive&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modify-note-starred-state">
+<span id="note-starredstate"></span><h1>设置笔记星标状态<a class="headerlink" href="#modify-note-starred-state" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/starredstate</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 笔记 ID</p></li>
+<li><p>starred (form, required): true/false</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/note/starredstate&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modify-note-important-state">
+<span id="note-importantstate"></span><h1>设置笔记重要状态<a class="headerlink" href="#modify-note-important-state" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/note/importantstate</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 笔记 ID</p></li>
+<li><p>important (form, required): true/false</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/note/importantstate&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">列出笔记</a></li>
+<li><a class="reference internal" href="#create-note">创建笔记</a></li>
+<li><a class="reference internal" href="#get-note-detail">获取笔记详情</a></li>
+<li><a class="reference internal" href="#delete-note">删除笔记</a></li>
+<li><a class="reference internal" href="#update-note">update note</a></li>
+<li><a class="reference internal" href="#archive-note">归档笔记</a></li>
+<li><a class="reference internal" href="#unarchive-note">取消归档笔记</a></li>
+<li><a class="reference internal" href="#modify-note-starred-state">设置笔记星标状态</a></li>
+<li><a class="reference internal" href="#modify-note-important-state">设置笔记重要状态</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_slides.html"
+                          title="previous chapter">获取演示详情</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_user_setting.html"
+                          title="next chapter">用户与设置相关 API</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_user_setting.html" title="用户与设置相关 API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_slides.html" title="获取演示详情"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出笔记</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

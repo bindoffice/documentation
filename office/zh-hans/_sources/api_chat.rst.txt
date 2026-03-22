@@ -1,0 +1,414 @@
+.. _api_chat:
+
+.. _api-chat-example:
+
+
+.. _chat-project.List:
+
+list chat channel
+------------------------------------------------
+interface address:
+    * /api/chat/channel/list
+    * /api/chat/channellist
+HTTP request method:
+    * GET
+request params:
+    * 无或见实现
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/chat/channel/list"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "list": [] },
+          "code": 0,
+          "message": "OK"
+        }
+
+
+create chat channel
+------------------------------------------------
+interface address:
+    * /api/chat/channel/create
+HTTP request method:
+    * POST
+request params:
+    * name (form, required): 频道名称
+    * public (form, required): 是否公开，true/false
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/chat/channel/create" -d "name=频道名&public=true"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+get or create chat channel
+------------------------------------------------
+interface address:
+    * /api/chat/channel/getorcreate
+HTTP request method:
+    * POST
+request params:
+    * 见实现（根据成员获取或创建私聊频道）
+response code:
+    * common response
+
+
+get chat channel id
+------------------------------------------------
+interface address:
+    * /api/chat/channel/id
+HTTP request method:
+    * GET
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+get chat channel detail
+------------------------------------------------
+interface address:
+    * /api/chat/channel/detail/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 频道 ID
+response code:
+    * common response
+
+
+delete chat channel
+------------------------------------------------
+interface address:
+    * /api/chat/channel/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 频道 ID
+response code:
+    * common response
+
+
+leave chat channel
+------------------------------------------------
+interface address:
+    * /api/chat/channel/leave
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 频道 ID
+response code:
+    * common response
+
+
+join chat channel
+------------------------------------------------
+interface address:
+    * /api/chat/channel/join
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 频道 ID
+response code:
+    * common response
+
+
+add channel member
+------------------------------------------------
+interface address:
+    * /api/chat/channel/addmember
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 频道 ID
+    * 成员相关参数见实现
+response code:
+    * common response
+
+
+remove channel member
+------------------------------------------------
+interface address:
+    * /api/chat/channel/removemember
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 频道 ID
+    * 成员相关参数见实现
+response code:
+    * common response
+
+
+get chat user list
+------------------------------------------------
+interface address:
+    * /api/chat/userlist
+HTTP request method:
+    * GET
+request params:
+    * domain (path/query): 域名
+response code:
+    * common response
+
+
+chat message list
+------------------------------------------------
+interface address:
+    * /api/chat/message/list
+HTTP request method:
+    * GET
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+create chat message
+------------------------------------------------
+interface address:
+    * /api/chat/message/create
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 频道 ID 或会话标识
+    * content (form, required): 消息内容
+    * msg_type (form, optional): 消息类型
+response code:
+    * common response
+
+
+delete chat message
+------------------------------------------------
+interface address:
+    * /api/chat/message/delete
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+search chat message
+------------------------------------------------
+interface address:
+    * /api/chat/message/search
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+chat message command
+------------------------------------------------
+interface address:
+    * /api/chat/message/command
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+chat message timeline
+------------------------------------------------
+interface address:
+    * /api/chat/message/timeline
+HTTP request method:
+    * GET
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+chat drive download link
+------------------------------------------------
+interface address:
+    * /api/chat/drive/downloadlink
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件 ID
+    * name (form, optional): 文件名
+response code:
+    * common response
+
+
+chat file download
+------------------------------------------------
+interface address:
+    * /chatfile/download/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 文件 ID
+response code:
+    * 重定向到下载地址或流
+
+
+v1 fetch api key
+------------------------------------------------
+interface address:
+    * /api/v1/fetch_api_key
+HTTP request method:
+    * POST
+request params:
+    * user (form): 用户名
+    * password (form): 密码
+    * 见实现
+response code:
+    * common response
+
+
+v1 register
+------------------------------------------------
+interface address:
+    * /api/v1/register
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+v1 events
+------------------------------------------------
+interface address:
+    * /api/v1/events
+HTTP request method:
+    * GET
+request params:
+    * 见实现（SSE 等）
+response code:
+    * common response
+
+
+v1 get messages
+------------------------------------------------
+interface address:
+    * /api/v1/messages
+HTTP request method:
+    * GET
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+v1 send messages
+------------------------------------------------
+interface address:
+    * /api/v1/messages
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+v1 message detail
+------------------------------------------------
+interface address:
+    * /api/v1/messages/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 消息 ID
+response code:
+    * common response
+
+
+chat messages history
+------------------------------------------------
+interface address:
+    * /api/chat/messages/history
+HTTP request method:
+    * GET
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+v1 register queue
+------------------------------------------------
+interface address:
+    * /api/v1/register_queue
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+v1 user uploads
+------------------------------------------------
+interface address:
+    * /api/v1/user_uploads
+HTTP request method:
+    * POST
+request params:
+    * multipart 上传
+response code:
+    * common response
+
+
+v1 users me presence
+------------------------------------------------
+interface address:
+    * /api/v1/users/me/presence
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+v1 users me
+------------------------------------------------
+interface address:
+    * /api/v1/users/me
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+
+v1 server settings
+------------------------------------------------
+interface address:
+    * /api/v1/server_settings
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response

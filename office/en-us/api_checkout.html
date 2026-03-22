@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>支付与结账 API &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="登录、注册与找回密码 API" href="api_auth.html" />
+    <link rel="prev" title="团队与团队成员 API" href="api_team.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_auth.html" title="登录、注册与找回密码 API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_team.html" title="团队与团队成员 API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">支付与结账 API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="api">
+<span id="api-checkout"></span><h1>支付与结账 API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
+<p>结账页、支付宝/ PayPal 下单与回调。</p>
+<section id="checkout-page">
+<span id="checkout-home"></span><h2>checkout page<a class="headerlink" href="#checkout-page" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/checkout</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>plan (query, optional): 套餐，如 free / standard / pro / ultra</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 返回结账页面 HTML</p></li>
+</ul>
+</dd>
+</dl>
+<p>说明：根据 plan 和语言展示对应价格（如 zh 为人民币，en 为美元）。</p>
+</section>
+<section id="alipay-create-order-redirect">
+<span id="checkout-alipayorders"></span><h2>alipay create order (redirect)<a class="headerlink" href="#alipay-create-order-redirect" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/checkout/alipayorders</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>amount (query, required): 支付金额，如 69.99</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>302: 重定向到支付宝支付页</p></li>
+</ul>
+</dd>
+</dl>
+<p>说明：创建支付宝订单并跳转支付，需登录。支付成功后会重定向到 /pay/back（或配置的回调地址）。</p>
+</section>
+<section id="alipay-return-redirect">
+<span id="checkout-alipayback"></span><h2>alipay return (redirect)<a class="headerlink" href="#alipay-return-redirect" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/checkout/alipayback</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>支付宝同步回调 query 参数</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>302: 重定向到 /billing</p></li>
+</ul>
+</dd>
+</dl>
+<p>说明：用户支付完成后支付宝同步跳转至该地址，服务端再重定向到 /billing。验签与订单更新见实现。</p>
+</section>
+<section id="paypal-create-order">
+<span id="checkout-paypalorders"></span><h2>paypal create order<a class="headerlink" href="#paypal-create-order" title="Link to this heading">¶</a></h2>
+<dl>
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/checkout/paypalorders</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul>
+<li><p>Body JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;cart&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;plan&quot;</span><span class="p">:</span> <span class="s2">&quot;pro&quot;</span> <span class="o">|</span> <span class="s2">&quot;ultra&quot;</span> <span class="o">|</span> <span class="s2">&quot;custom&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 返回 PayPal 订单对象（含 id、links 等）</p></li>
+</ul>
+</dd>
+</dl>
+<p>response example：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>JSON: PayPal Create Order 响应（含 id、status、links 等）</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="paypal-capture-order">
+<span id="checkout-paypalcapture"></span><h2>paypal capture order<a class="headerlink" href="#paypal-capture-order" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/checkout/paypalorders/:id/capture</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (path): PayPal 订单 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 返回 PayPal 捕获结果</p></li>
+</ul>
+</dd>
+</dl>
+<p>response example：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>JSON: PayPal Capture Order 响应</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">支付与结账 API</a><ul>
+<li><a class="reference internal" href="#checkout-page">checkout page</a></li>
+<li><a class="reference internal" href="#alipay-create-order-redirect">alipay create order (redirect)</a></li>
+<li><a class="reference internal" href="#alipay-return-redirect">alipay return (redirect)</a></li>
+<li><a class="reference internal" href="#paypal-create-order">paypal create order</a></li>
+<li><a class="reference internal" href="#paypal-capture-order">paypal capture order</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_team.html"
+                          title="previous chapter">团队与团队成员 API</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_auth.html"
+                          title="next chapter">登录、注册与找回密码 API</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_auth.html" title="登录、注册与找回密码 API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_team.html" title="团队与团队成员 API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">支付与结账 API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

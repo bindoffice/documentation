@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Firewall configuration &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Upgrade" href="upgrade.html" />
+    <link rel="prev" title="docker deploy" href="docker-install.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="upgrade.html" title="Upgrade"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="docker-install.html" title="docker deploy"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Firewall configuration</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="firewall-configuration">
+<span id="firewall"></span><span id="help-firewall"></span><h1>Firewall configuration<a class="headerlink" href="#firewall-configuration" title="Link to this heading">¶</a></h1>
+<section id="configure-the-firewall">
+<h2>Configure the firewall<a class="headerlink" href="#configure-the-firewall" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Host</p></th>
+<th class="head"><p>Port</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>TCP: 80</p></td>
+<td><p>HTTP Service</p></td>
+</tr>
+<tr class="row-odd"><td><p>*</p></td>
+<td><p>TCP: 443</p></td>
+<td><p>HTTPS Service</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>TCP: 41883</p></td>
+<td><p>mqtt service</p></td>
+</tr>
+<tr class="row-odd"><td><p>*</p></td>
+<td><p>TCP: 25</p></td>
+<td><p>smtp service</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>TCP: 465</p></td>
+<td><p>smtp over ssl service</p></td>
+</tr>
+<tr class="row-odd"><td><p>*</p></td>
+<td><p>UDP: 50000-60000</p></td>
+<td><p>meeting UDP connection for WebRTC</p></td>
+</tr>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>TCP: 7881</p></td>
+<td><p>meeting TCP connection for WebRTC</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>80/443 is the port of the HTTP and HTTPS service</p></li>
+<li><p>80 port can be used to obtain the free ssl certificate</p></li>
+<li><p>41883 is the port of the mqtt service</p></li>
+<li><p>25 is the port of the smtp service</p></li>
+<li><p>465 is the port of the smtp over ssl service</p></li>
+<li><p>50000-60000 is the port range of the UDP connection for WebRTC</p></li>
+<li><p>7881 is the port of the TCP connection for WebRTC</p></li>
+<li><p>the meet port range is in the meet configuration file</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Firewall configuration</a><ul>
+<li><a class="reference internal" href="#configure-the-firewall">Configure the firewall</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="docker-install.html"
+                          title="previous chapter">docker deploy</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="upgrade.html"
+                          title="next chapter">Upgrade</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="upgrade.html" title="Upgrade"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="docker-install.html" title="docker deploy"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Firewall configuration</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

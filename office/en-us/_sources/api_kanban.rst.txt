@@ -1,0 +1,456 @@
+.. _api_kanban:
+
+.. _api-kanban-example:
+
+
+.. _kanban-project.List:
+
+list kanban project
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/project/list
+HTTP request method:
+    * GET
+request params:
+    * 无（需登录）
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/kanban/project/list"
+    
+response example：
+
+    * JSON::
+
+        {
+            "code": 0,
+            "message": "",
+            "data": {
+                "list": [
+                    {
+                       "name":       "",
+                        "id":         "",
+                        "creator_id": "",
+                        "team_id":    "",
+                        "color":      "",
+                        "icon":       "",
+                        "icon_color": "",
+                        "name_color": "",
+                    },
+                ], 
+                "uid": "1234567890", 
+                "email": "hello@example.com", 
+            }, 
+        }
+
+
+.. _kanban-project.create:
+
+create kanban project
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/project/create
+HTTP request method:
+    * POST
+request params:
+    * name (form, required): 项目名称
+    * team_id (form, optional): 团队 ID
+    * after_id (form, optional): 排序后置于其后的项目 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/project/create" -d "name=我的看板"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+.. _kanban-project.move:
+
+move kanban project
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/project/move
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 项目 ID
+    * after_id (form, optional): 移动后置于其后的项目 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/project/move" -d "id=1&after_id=2"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+
+.. _kanban-project.update:
+
+update kanban project
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/project/update
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 项目 ID
+    * name (form, optional): 名称
+    * color (form, optional): 颜色
+    * icon (form, optional): 图标
+    * name_color (form, optional): 名称颜色
+    * icon_color (form, optional): 图标颜色
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/project/update" -d "id=1&name=新名称"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+
+delete kanban project
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/project/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 项目 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/project/delete"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+.. _kanban-list.create:
+
+create kanban list
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/list/create
+HTTP request method:
+    * POST
+request params:
+    * name (form, required): 列表名称
+    * project_id (form, required): 项目 ID
+    * after_id (form, optional): 排序后置于其后的列表 ID
+    * before_id (form, optional): 排序后置于其前的列表 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/list/create" -d "name=待办&project_id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+
+move kanban list
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/list/move
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 列表 ID
+    * after_id (form, optional): 移动后置于其后的列表 ID
+    * before_id (form, optional): 移动后置于其前的列表 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/list/move"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+update kanban list
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/list/update
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 列表 ID
+    * name (form, optional): 名称
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/list/update" -d "id=1&name=新名称"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+
+delete kanban list
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/list/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 列表 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/list/delete"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+get kanban card list
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/card/list
+HTTP request method:
+    * GET
+request params:
+    * project_id (query, required): 项目 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/kanban/card/list"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+create kanban card
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/card/create
+HTTP request method:
+    * POST
+request params:
+    * title (form, required): 卡片标题
+    * list_id (form, required): 列表 ID
+    * color (form, optional): 颜色
+    * due (form, optional): 截止时间
+    * principal_id (form, optional): 负责人 ID
+    * after_id (form, optional): 排序后置于其后的卡片 ID
+    * before_id (form, optional): 排序后置于其前的卡片 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/card/create" -d "title=任务&list_id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+get kanban card detail
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/card/detail/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 卡片 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/kanban/card/detail/:id"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+move kanban card
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/card/move
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 卡片 ID
+    * list_id (form, required): 目标列表 ID
+    * after_id (form, optional): 移动后置于其后的卡片 ID
+    * before_id (form, optional): 移动后置于其前的卡片 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/card/move"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+update kanban card
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/card/update
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 卡片 ID
+    * title (form, optional): 标题
+    * desc (form, optional): 描述
+    * color (form, optional): 颜色
+    * due (form, optional): 截止时间
+    * principal_id (form, optional): 负责人 ID
+    * status (form, optional): 状态
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/card/update"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+delete kanban card
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/card/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 卡片 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/kanban/card/delete" -d "id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+get kanban card assigned
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/card/assigned
+HTTP request method:
+    * GET
+request params:
+    * 见实现（我负责的卡片等）
+response code:
+    * common response
+
+
+kanban project stream
+-------------------------------------------------------------
+interface address:
+    * /api/kanban/stream/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 项目 ID
+response code:
+    * SSE 流，Content-Type: text/event-stream

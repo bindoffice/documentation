@@ -1,0 +1,135 @@
+.. _api_team:
+
+团队与团队成员 API
+==================================
+
+管理后台：团队（Team）与团队成员管理，需管理员会话。
+
+.. _team.list:
+
+list teams
+-------------------------------------------------------------
+interface address:
+    * /team/list
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+response example：
+
+    * JSON::
+
+        {
+          "data": [
+            {
+              "id": "1",
+              "name": "team-name",
+              "domain_id": "1",
+              "url": "/team/detail/1",
+              "user": "admin"
+            }
+          ],
+          "code": 0,
+          "message": "OK"
+        }
+
+
+.. _team.create:
+
+create team
+-------------------------------------------------------------
+interface address:
+    * /team/:domain/create
+HTTP request method:
+    * POST
+request params:
+    * domain (path): 根域名
+    * name (form, required): 团队名称，仅字母与连字符
+    * domain (form, required): 同上根域名
+    * user (form, required): 负责人用户名（该域下成员）
+response code:
+    * 0: 成功
+    * 1: 参数错误、无权限、团队已存在等
+
+example::
+
+    curl -X POST "$BASE_URL/team/example.com/create" -d "name=dev-team&domain=example.com&user=admin"
+
+
+.. _team.member.list:
+
+team member list (page)
+-------------------------------------------------------------
+interface address:
+    * /team/member/list/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 团队 ID
+response code:
+    * common response
+
+说明：返回该团队下的成员列表（含域名成员或团队成员）。id 为当前域时返回域下成员。
+
+
+.. _team.member.list.api:
+
+team member list (API)
+-------------------------------------------------------------
+interface address:
+    * /api/team/member/list/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 团队 ID
+response code:
+    * common response
+
+response example：
+
+    * JSON::
+
+        {
+          "data": [
+            {
+              "id": "1",
+              "url": "/member/1/detail/1",
+              "name": "Admin",
+              "user": "admin",
+              "type": 0,
+              "email": "admin@example.com"
+            }
+          ],
+          "code": 0,
+          "message": "OK"
+        }
+
+
+.. _team.member.create:
+
+create team member
+-------------------------------------------------------------
+interface address:
+    * /team/member/create/:id
+HTTP request method:
+    * POST
+request params:
+    * id (path): 团队 ID
+    * email (form, required): 成员邮箱，须为本域下已存在用户（如 user@example.com）
+response code:
+    * 0: 成功
+    * 1: 参数错误、无权限、用户不存在等
+
+example::
+
+    curl -X POST "$BASE_URL/team/member/create/1" -d "email=user@example.com"
+
+
+页面路由（非 JSON API）
+-------------------------------------------------------------
+    * GET /team - 团队管理页
+    * GET /team/:domain - 某域名下团队详情/列表页
+    * GET /team/member/:id - 某团队成员管理页

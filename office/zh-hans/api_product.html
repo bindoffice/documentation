@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SaaS 产品与计费回调 API &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="其他接口（代理、ACME、头像、安装）" href="api_misc.html" />
+    <link rel="prev" title="登录、注册与找回密码 API" href="api_auth.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_misc.html" title="其他接口（代理、ACME、头像、安装）"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_auth.html" title="登录、注册与找回密码 API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SaaS 产品与计费回调 API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="saas-api">
+<span id="api-product"></span><h1>SaaS 产品与计费回调 API<a class="headerlink" href="#saas-api" title="Link to this heading">¶</a></h1>
+<p>SaaS 模式下可用：产品开通/续费回调、价格与账单页。</p>
+<section id="product-mail-webhook-callback">
+<span id="product-mail"></span><h2>product mail (webhook/callback)<a class="headerlink" href="#product-mail-webhook-callback" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/product/mail</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>eventId (query): 事件 ID</p></li>
+<li><p>signature (query): 签名</p></li>
+<li><p>timestamp (query): 时间戳</p></li>
+<li><p>其他见实现（用于校验与开通/续费逻辑）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 成功或错误 JSON（code、message）</p></li>
+</ul>
+</dd>
+</dl>
+<p>说明：SaaS 侧产品开通/续费回调，校验 sign 后更新授权或成员等。需配置 SaaSDomain。</p>
+</section>
+<section id="json-api">
+<h2>页面/其他路由（非 JSON API）<a class="headerlink" href="#json-api" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>GET /price - 价格页</p></li>
+<li><p>GET /billing - 账单页</p></li>
+<li><p>GET /terms - 服务条款页（SaaS）</p></li>
+<li><p>GET /privacy-policy - 隐私政策页（SaaS）</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">SaaS 产品与计费回调 API</a><ul>
+<li><a class="reference internal" href="#product-mail-webhook-callback">product mail (webhook/callback)</a></li>
+<li><a class="reference internal" href="#json-api">页面/其他路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_auth.html"
+                          title="previous chapter">登录、注册与找回密码 API</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_misc.html"
+                          title="next chapter">其他接口（代理、ACME、头像、安装）</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_misc.html" title="其他接口（代理、ACME、头像、安装）"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_auth.html" title="登录、注册与找回密码 API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SaaS 产品与计费回调 API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

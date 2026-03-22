@@ -1,0 +1,200 @@
+.. _api_calendar:
+
+.. _api-calendar-example:
+
+
+.. _calendar.list:
+
+list calendar
+-------------------------------------------------------------
+interface address:
+    * /api/calendar/collection/list
+HTTP request method:
+    * GET
+request params:
+    * limit (query, optional): 条数限制
+    * offset (query, optional): 偏移
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/calendar/collection/list"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+create calendar
+-------------------------------------------------------------
+interface address:
+    * /api/calendar/collection/create
+HTTP request method:
+    * POST
+request params:
+    * name (form, required): 日历名称
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/calendar/collection/create"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+update calendar
+-------------------------------------------------------------
+interface address:
+    * /api/calendar/collection/update
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 日历集合 ID
+    * name (form, optional): 名称等，见实现
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/calendar/collection/update"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+list calendar event
+-------------------------------------------------------------
+interface address:
+    * /api/calendar/event/list
+HTTP request method:
+    * GET
+request params:
+    * collection_id (query, optional): 日历集合 ID
+    * start_ts / end_ts (query, optional): 时间范围
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/calendar/event/list"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+get calendar event detail
+----------------------------------------------------------------------------------------------------------------------------
+interface address:
+    * /api/calendar/event/detail/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 事件 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/calendar/event/detail/:id"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+create calendar event
+-------------------------------------------------------------
+interface address:
+    * /api/calendar/event/create
+HTTP request method:
+    * POST
+request params:
+    * title (form, required): 标题
+    * dtstart (form, required): 开始时间戳
+    * dtend (form, required): 结束时间戳
+    * type (form, optional): 类型
+    * collection_id (form, optional): 日历集合 ID
+    * allday (form, optional): 是否全天
+    * interval / freq / byweek / bymonth / until / count (form, optional): 重复规则
+    * meet_id (form, optional): 会议 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/calendar/event/create" -d "title=会议&dtstart=1234567890&dtend=1234567900"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+update calendar event
+-------------------------------------------------------------
+interface address:
+    * /api/calendar/event/update
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 事件 ID
+    * title / dtstart / dtend / collection_id 等（见实现）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/calendar/event/update"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+delete calendar event
+-------------------------------------------------------------
+interface address:
+    * /api/calendar/event/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 事件 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/calendar/event/delete"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+

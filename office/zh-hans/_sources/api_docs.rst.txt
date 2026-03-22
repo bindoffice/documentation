@@ -1,0 +1,140 @@
+.. _api_docs:
+
+.. _api-docs-example:
+
+
+.. _docs.detail:
+
+get document detail
+-------------------------------------------------------------
+interface address:
+    * /api/docs/detail/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 文档 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/docs/detail/1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": { "id": "1", "name": "", "parent_id": 0, "locale": "", "ct": 0 }
+        }
+
+
+
+.. _docs.create:
+
+create document
+-------------------------------------------------------------
+interface address:
+    * /api/docs/create
+HTTP request method:
+    * POST
+request params:
+    * parent_id (form, optional): 父目录 ID，默认 0
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/docs/create" -d "parent_id=0"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "文档创建成功",
+          "data": { "id": "1", "locale": "", "parent_id": 0, "name": "未命名.docx", "ct": 0 }
+        }
+
+
+.. _docs.rename:
+
+rename document
+-------------------------------------------------------------
+interface address:
+    * /api/docs/rename
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文档 ID
+    * name (form, required): 新名称
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/docs/rename" -d "id=1&name=新文档.docx"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+.. _docs.download:
+
+download document
+-------------------------------------------------------------
+interface address:
+    * /api/docs/download
+HTTP request method:
+    * GET
+request params:
+    * id (query): 文档 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/docs/download?id=1"
+    
+response example：
+
+    * 返回文件流或重定向到下载地址
+
+
+.. _docs.createchange:
+
+create document change
+-------------------------------------------------------------
+interface address:
+    * /api/docs/createchange
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文档 ID
+    * 变更内容等（见实现，用于协同编辑）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/docs/createchange" -d "id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }

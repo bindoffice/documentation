@@ -1,0 +1,32 @@
+.. _api_product:
+
+SaaS 产品与计费回调 API
+==================================
+
+SaaS 模式下可用：产品开通/续费回调、价格与账单页。
+
+.. _product.mail:
+
+product mail (webhook/callback)
+-------------------------------------------------------------
+interface address:
+    * /product/mail
+HTTP request method:
+    * POST
+request params:
+    * eventId (query): 事件 ID
+    * signature (query): 签名
+    * timestamp (query): 时间戳
+    * 其他见实现（用于校验与开通/续费逻辑）
+response code:
+    * 200: 成功或错误 JSON（code、message）
+
+说明：SaaS 侧产品开通/续费回调，校验 sign 后更新授权或成员等。需配置 SaaSDomain。
+
+
+页面/其他路由（非 JSON API）
+-------------------------------------------------------------
+    * GET /price - 价格页
+    * GET /billing - 账单页
+    * GET /terms - 服务条款页（SaaS）
+    * GET /privacy-policy - 隐私政策页（SaaS）

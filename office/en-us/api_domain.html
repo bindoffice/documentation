@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>域名管理 API &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="成员管理 API" href="api_member.html" />
+    <link rel="prev" title="用户与设置相关 API" href="api_user_setting.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_member.html" title="成员管理 API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_user_setting.html" title="用户与设置相关 API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">域名管理 API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="api">
+<span id="api-domain"></span><h1>域名管理 API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
+<p>管理后台：域名相关接口，需管理员会话。</p>
+<section id="create-domain">
+<span id="domain-create"></span><h2>create domain<a class="headerlink" href="#create-domain" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/domain/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>domain (form, required): 根域名，如 example.com</p></li>
+<li><p>type (form, required): 类型，0 或 1</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>0: 成功</p></li>
+<li><p>1: 参数错误、无权限、域名已存在等</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/domain/create&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;domain=example.com&amp;type=0&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;域名创建成功&quot;</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span> <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-domain">
+<span id="domain-list"></span><h2>list domain<a class="headerlink" href="#list-domain" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/domain/list</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;/domain/detail/example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="domain-info">
+<span id="id1"></span><h2>domain info<a class="headerlink" href="#domain-info" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/domain/info/:domain</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>domain (path): 域名</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;example.com&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;dkim_pub_key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dkim_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spf_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mxa_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mxb_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;dmarc_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;inbox_rules&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spf_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;dkim_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;dmarc_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;mxa_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;mxb_valid&quot;</span><span class="p">:</span> <span class="n">true</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-domain">
+<span id="domain-delete"></span><h2>delete domain<a class="headerlink" href="#delete-domain" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/domain/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>domain (form, required): 域名</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>0: 成功</p></li>
+<li><p>1: 参数错误、无权限等</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/domain/delete&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;domain=example.com&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="check-domain-dns">
+<span id="domain-checkdns"></span><h2>check domain dns<a class="headerlink" href="#check-domain-dns" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/domain/checkdns</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>domain (form, required): 域名</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>0: 检查成功（含各记录是否通过）</p></li>
+<li><p>1: 参数错误或检查失败</p></li>
+</ul>
+</dd>
+</dl>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;dkim_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;mxa_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;mxb_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;dmarc_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;spf_valid&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s2">&quot;current_mxa_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;current_mxb_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;current_spf_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;current_dkim_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;current_dmarc_record&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hostName&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cache_time&quot;</span><span class="p">:</span> <span class="s2">&quot;300s&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;检查DNS记录成功&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-domain-inbox-rules">
+<span id="domain-inboxrules"></span><h2>update domain inbox rules<a class="headerlink" href="#update-domain-inbox-rules" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/domain/inboxrules/:domain</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>domain (path): 域名</p></li>
+<li><p>domain (form, required): 同上</p></li>
+<li><p>rule (form, required): 收信规则，多行，每行格式为「条件,动作,收件人」，收件人不能为本域</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>0: 成功</p></li>
+<li><p>1: 域名未通过 DNS 验证或规则格式错误</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/domain/inboxrules/example.com&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;domain=example.com&amp;rule=...&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;valid&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;hostname&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span> <span class="s2">&quot;inbox_rules&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span> <span class="p">},</span> <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;更新域名收信规则成功&quot;</span> <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="json-api">
+<h2>页面路由（非 JSON API）<a class="headerlink" href="#json-api" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>GET /domain - 域名管理页</p></li>
+<li><p>GET /domain/detail/:domain - 域名详情页</p></li>
+<li><p>GET /domain/inboxrules/:domain - 收信规则页</p></li>
+<li><p>GET /domain/delete/:domain - 删除域名确认页</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">域名管理 API</a><ul>
+<li><a class="reference internal" href="#create-domain">create domain</a></li>
+<li><a class="reference internal" href="#list-domain">list domain</a></li>
+<li><a class="reference internal" href="#domain-info">domain info</a></li>
+<li><a class="reference internal" href="#delete-domain">delete domain</a></li>
+<li><a class="reference internal" href="#check-domain-dns">check domain dns</a></li>
+<li><a class="reference internal" href="#update-domain-inbox-rules">update domain inbox rules</a></li>
+<li><a class="reference internal" href="#json-api">页面路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_user_setting.html"
+                          title="previous chapter">用户与设置相关 API</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_member.html"
+                          title="next chapter">成员管理 API</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_member.html" title="成员管理 API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_user_setting.html" title="用户与设置相关 API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">域名管理 API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+.. _api_misc:
+
+其他接口（代理、ACME、头像、安装）
+==================================
+
+.. _proxysend:
+
+proxysend
+-------------------------------------------------------------
+interface address:
+    * /proxysend
+HTTP request method:
+    * POST
+request params:
+    * 见实现（代理发送请求参数）
+response code:
+    * 200: 代理结果
+
+
+.. _proxydomain:
+
+proxydomain page
+-------------------------------------------------------------
+interface address:
+    * /proxydomain
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * 200: 代理域名配置页 HTML
+
+
+.. _acme.create:
+
+acme create certificate
+-------------------------------------------------------------
+interface address:
+    * /acme/create
+HTTP request method:
+    * POST
+request params:
+    * 见实现（域名等，用于申请证书）
+response code:
+    * 200: 创建结果
+
+说明：ACME 证书申请，需配置 CertDir、AdminEmail 等。
+
+
+.. _acme.renew:
+
+acme renew certificate
+-------------------------------------------------------------
+interface address:
+    * /acme/renew
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * 200: 续期结果
+
+
+.. _gravatar:
+
+gravatar
+-------------------------------------------------------------
+interface address:
+    * /gravatar/:id
+    * /defaultgravatar
+HTTP request method:
+    * GET
+request params:
+    * id (path): 用户/标识 ID（/gravatar/:id）
+response code:
+    * 200: 头像图片或默认头像重定向
+
+
+.. _install:
+
+install script
+-------------------------------------------------------------
+interface address:
+    * /install
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * 200: 返回 static/install/init.sh 文本内容（Content-Type: text/plain）
+
+
+.. _wellknown.acme:
+
+ACME HTTP-01 challenge
+-------------------------------------------------------------
+interface address:
+    * /.well-known/acme-challenge/:token
+HTTP request method:
+    * GET
+request params:
+    * token (path): ACME 挑战 token
+response code:
+    * 200: 返回 key authorization 字符串
+    * 404: token 无效

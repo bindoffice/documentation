@@ -1,0 +1,353 @@
+.. _api_user_setting:
+
+用户与设置相关 API
+==================================
+
+.. _user.info:
+
+get user info
+-------------------------------------------------------------
+interface address:
+    * /api/user/info
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/user/info"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "id": "", "user": "", "name": "", "domain": "" },
+          "code": 0,
+          "message": "OK"
+        }
+
+
+.. _user.id:
+
+get user id
+-------------------------------------------------------------
+interface address:
+    * /api/user/id
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+
+.. _setting.detail:
+
+get setting detail
+-------------------------------------------------------------
+interface address:
+    * /api/setting/detail
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+
+.. _setting.update:
+
+update setting
+-------------------------------------------------------------
+interface address:
+    * /api/setting/update
+HTTP request method:
+    * POST
+request params:
+    * 用户资料字段（name、locale 等，见实现）
+response code:
+    * common response
+
+
+.. _setting.updatepassword:
+
+update password
+-------------------------------------------------------------
+interface address:
+    * /api/setting/updatepassword
+HTTP request method:
+    * POST
+request params:
+    * 原密码、新密码等（见实现）
+response code:
+    * common response
+
+
+.. _setting.uploadprofileimage:
+
+upload profile image
+-------------------------------------------------------------
+interface address:
+    * /api/setting/uploadprofileimage
+HTTP request method:
+    * POST
+request params:
+    * multipart/form-data 上传头像
+response code:
+    * common response
+
+
+.. _locale.update:
+
+update locale (without login)
+-------------------------------------------------------------
+interface address:
+    * /locale/update
+HTTP request method:
+    * POST
+request params:
+    * locale (form): 语言标识
+response code:
+    * common response
+
+
+.. _changepassword:
+
+change password (api)
+-------------------------------------------------------------
+interface address:
+    * /api/changepassword
+HTTP request method:
+    * POST
+request params:
+    * 见实现（修改密码）
+response code:
+    * common response
+
+
+.. _appuser.list:
+
+list app user
+-------------------------------------------------------------
+interface address:
+    * /api/appuser/list
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+
+.. _appuser.create:
+
+create app user
+-------------------------------------------------------------
+interface address:
+    * /api/appuser/create
+HTTP request method:
+    * POST
+request params:
+    * 见实现（应用密码/第三方应用账号）
+response code:
+    * common response
+
+
+.. _appuser.delete:
+
+delete app user
+-------------------------------------------------------------
+interface address:
+    * /api/appuser/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 应用用户 ID
+response code:
+    * common response
+
+
+.. _rule.create:
+
+create rule (inbox rule)
+-------------------------------------------------------------
+interface address:
+    * /api/rule/create
+HTTP request method:
+    * POST
+request params:
+    * 规则条件、动作等（见实现）
+response code:
+    * common response
+
+
+.. _share.list:
+
+list share
+-------------------------------------------------------------
+interface address:
+    * /api/share/list/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 分享/文档 ID
+response code:
+    * common response
+
+
+.. _share.create:
+
+create share
+-------------------------------------------------------------
+interface address:
+    * /api/share/create
+HTTP request method:
+    * POST
+request params:
+    * 见实现（创建分享链接等）
+response code:
+    * common response
+
+
+.. _share.update:
+
+update share
+-------------------------------------------------------------
+interface address:
+    * /api/share/update
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+.. _docshome.list:
+
+docs home list
+-------------------------------------------------------------
+interface address:
+    * /api/docshome/list
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+
+.. _dots.list:
+
+list dots
+-------------------------------------------------------------
+interface address:
+    * /api/dots/list
+HTTP request method:
+    * GET
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+.. _dots.create:
+
+create dot (folder)
+-------------------------------------------------------------
+interface address:
+    * /api/dots/create
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+.. _dots.createfile:
+
+create dot file
+-------------------------------------------------------------
+interface address:
+    * /api/dots/createfile
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+.. _adminapi.setting:
+
+admin api get setting
+-------------------------------------------------------------
+interface address:
+    * /adminapi/setting
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response（需管理员）
+
+
+.. _adminapi.bindmobile:
+
+admin api bind mobile
+-------------------------------------------------------------
+interface address:
+    * /adminapi/bindmobile
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+.. _adminapi.getsmscode:
+
+admin api get sms code
+-------------------------------------------------------------
+interface address:
+    * /adminapi/getsmscode
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+.. _notice.create:
+
+create notice
+-------------------------------------------------------------
+interface address:
+    * /api/notice/create
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+
+.. _modelapi.enc:
+
+modelapi filter enc
+-------------------------------------------------------------
+interface address:
+    * /modelapi/filter/enc
+HTTP request method:
+    * GET
+request params:
+    * 见实现
+response code:
+    * common response

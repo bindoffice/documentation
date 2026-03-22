@@ -1,0 +1,684 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>用户与设置相关 API &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="域名管理 API" href="api_domain.html" />
+    <link rel="prev" title="列出笔记" href="api_note.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_domain.html" title="域名管理 API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_note.html" title="列出笔记"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">用户与设置相关 API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="api">
+<span id="api-user-setting"></span><h1>用户与设置相关 API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
+<section id="get-user-info">
+<span id="user-info"></span><h2>get user info<a class="headerlink" href="#get-user-info" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/user/info</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/user/info&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-user-id">
+<span id="user-id"></span><h2>get user id<a class="headerlink" href="#get-user-id" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/user/id</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="get-setting-detail">
+<span id="setting-detail"></span><h2>get setting detail<a class="headerlink" href="#get-setting-detail" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/setting/detail</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="update-setting">
+<span id="setting-update"></span><h2>update setting<a class="headerlink" href="#update-setting" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/setting/update</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>用户资料字段（name、locale 等，见实现）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="update-password">
+<span id="setting-updatepassword"></span><h2>update password<a class="headerlink" href="#update-password" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/setting/updatepassword</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>原密码、新密码等（见实现）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="upload-profile-image">
+<span id="setting-uploadprofileimage"></span><h2>upload profile image<a class="headerlink" href="#upload-profile-image" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/setting/uploadprofileimage</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>multipart/form-data 上传头像</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="update-locale-without-login">
+<span id="locale-update"></span><h2>update locale (without login)<a class="headerlink" href="#update-locale-without-login" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/locale/update</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>locale (form): 语言标识</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="change-password-api">
+<span id="changepassword"></span><h2>change password (api)<a class="headerlink" href="#change-password-api" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/changepassword</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现（修改密码）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="list-app-user">
+<span id="appuser-list"></span><h2>list app user<a class="headerlink" href="#list-app-user" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/appuser/list</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="create-app-user">
+<span id="appuser-create"></span><h2>create app user<a class="headerlink" href="#create-app-user" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/appuser/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现（应用密码/第三方应用账号）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="delete-app-user">
+<span id="appuser-delete"></span><h2>delete app user<a class="headerlink" href="#delete-app-user" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/appuser/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 应用用户 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="create-rule-inbox-rule">
+<span id="rule-create"></span><h2>create rule (inbox rule)<a class="headerlink" href="#create-rule-inbox-rule" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/rule/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>规则条件、动作等（见实现）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="list-share">
+<span id="share-list"></span><h2>list share<a class="headerlink" href="#list-share" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/share/list/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (path): 分享/文档 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="create-share">
+<span id="share-create"></span><h2>create share<a class="headerlink" href="#create-share" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/share/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现（创建分享链接等）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="update-share">
+<span id="share-update"></span><h2>update share<a class="headerlink" href="#update-share" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/share/update</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="docs-home-list">
+<span id="docshome-list"></span><h2>docs home list<a class="headerlink" href="#docs-home-list" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/docshome/list</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="list-dots">
+<span id="dots-list"></span><h2>list dots<a class="headerlink" href="#list-dots" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/dots/list</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="create-dot-folder">
+<span id="dots-create"></span><h2>create dot (folder)<a class="headerlink" href="#create-dot-folder" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/dots/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="create-dot-file">
+<span id="dots-createfile"></span><h2>create dot file<a class="headerlink" href="#create-dot-file" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/dots/createfile</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="admin-api-get-setting">
+<span id="adminapi-setting"></span><h2>admin api get setting<a class="headerlink" href="#admin-api-get-setting" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/adminapi/setting</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response（需管理员）</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="admin-api-bind-mobile">
+<span id="adminapi-bindmobile"></span><h2>admin api bind mobile<a class="headerlink" href="#admin-api-bind-mobile" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/adminapi/bindmobile</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="admin-api-get-sms-code">
+<span id="adminapi-getsmscode"></span><h2>admin api get sms code<a class="headerlink" href="#admin-api-get-sms-code" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/adminapi/getsmscode</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="create-notice">
+<span id="notice-create"></span><h2>create notice<a class="headerlink" href="#create-notice" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/notice/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="modelapi-filter-enc">
+<span id="modelapi-enc"></span><h2>modelapi filter enc<a class="headerlink" href="#modelapi-filter-enc" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/modelapi/filter/enc</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">用户与设置相关 API</a><ul>
+<li><a class="reference internal" href="#get-user-info">get user info</a></li>
+<li><a class="reference internal" href="#get-user-id">get user id</a></li>
+<li><a class="reference internal" href="#get-setting-detail">get setting detail</a></li>
+<li><a class="reference internal" href="#update-setting">update setting</a></li>
+<li><a class="reference internal" href="#update-password">update password</a></li>
+<li><a class="reference internal" href="#upload-profile-image">upload profile image</a></li>
+<li><a class="reference internal" href="#update-locale-without-login">update locale (without login)</a></li>
+<li><a class="reference internal" href="#change-password-api">change password (api)</a></li>
+<li><a class="reference internal" href="#list-app-user">list app user</a></li>
+<li><a class="reference internal" href="#create-app-user">create app user</a></li>
+<li><a class="reference internal" href="#delete-app-user">delete app user</a></li>
+<li><a class="reference internal" href="#create-rule-inbox-rule">create rule (inbox rule)</a></li>
+<li><a class="reference internal" href="#list-share">list share</a></li>
+<li><a class="reference internal" href="#create-share">create share</a></li>
+<li><a class="reference internal" href="#update-share">update share</a></li>
+<li><a class="reference internal" href="#docs-home-list">docs home list</a></li>
+<li><a class="reference internal" href="#list-dots">list dots</a></li>
+<li><a class="reference internal" href="#create-dot-folder">create dot (folder)</a></li>
+<li><a class="reference internal" href="#create-dot-file">create dot file</a></li>
+<li><a class="reference internal" href="#admin-api-get-setting">admin api get setting</a></li>
+<li><a class="reference internal" href="#admin-api-bind-mobile">admin api bind mobile</a></li>
+<li><a class="reference internal" href="#admin-api-get-sms-code">admin api get sms code</a></li>
+<li><a class="reference internal" href="#create-notice">create notice</a></li>
+<li><a class="reference internal" href="#modelapi-filter-enc">modelapi filter enc</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_note.html"
+                          title="previous chapter">列出笔记</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_domain.html"
+                          title="next chapter">域名管理 API</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_domain.html" title="域名管理 API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_note.html" title="列出笔记"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">用户与设置相关 API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

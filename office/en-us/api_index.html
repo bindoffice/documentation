@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="list mail" href="api_mail.html" />
+    <link rel="prev" title="database table structure update" href="models.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_mail.html" title="list mail"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="database table structure update"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
+<a target="_blank" href="https://hedwi.com" >BindOffice官网 </a><section id="mail">
+<h2>mail<a class="headerlink" href="#mail" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html">list mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#get-mail-detail">get mail detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#get-mail-info">get mail info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#get-mail-original-content">get mail original content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#search-mail">search mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#modify-mail-read-state">modify mail read state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#modify-mail-starred-state">modify mail starred state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#modify-mail-important-state">modify mail important state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#delete-mail">delete mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#permanently-delete-mail">permanently delete mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#archive-mail">archive mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#unarchive-mail">unarchive mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#move-mail-to-label-group">move mail to label group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#delete-mail-label-group">delete mail label group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#apply-mail-label-group">apply mail label group</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#send-mail">send mail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#upload-as-attachment">upload as attachment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#file-upload">file upload (通用)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#list-label">list label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#create-label">create label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#update-label-state">update label state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#delete-label">delete label</a></li>
+</ul>
+</div>
+</section>
+<section id="contacts">
+<h2>contacts<a class="headerlink" href="#contacts" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html">list contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#create-contact">create contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#search-contact">search contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#update-contact">update contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#get-contact-detail">get contact detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#delete-contact">delete contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#list-contact-label">list contact label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#create-contact-label">create contact label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#delete-contact-label">delete contact label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#apply-contact-label">apply contact label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#modify-contact-starred-state">modify contact starred state</a></li>
+</ul>
+</div>
+</section>
+<section id="calendar">
+<h2>calendar<a class="headerlink" href="#calendar" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html">list calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#create-calendar">create calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#update-calendar">update calendar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#list-calendar-event">list calendar event</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#get-calendar-event-detail">get calendar event detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#create-calendar-event">create calendar event</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#update-calendar-event">update calendar event</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#delete-calendar-event">delete calendar event</a></li>
+</ul>
+</div>
+</section>
+<section id="ai">
+<h2>AI<a class="headerlink" href="#ai" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html">list chat thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#create-chat-thread">create chat thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#id1">list chat thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#move-chat-thread">move chat thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#update-chat-thread">update chat thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#delete-chat-thread">delete chat thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#list-chat-content">list chat content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#create-chat-content">create chat content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#delete-chat-content">delete chat content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#chat-content-stream">chat content stream</a></li>
+</ul>
+</div>
+</section>
+<section id="chat">
+<h2>chat<a class="headerlink" href="#chat" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html">list chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#create-chat-channel">create chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-or-create-chat-channel">get or create chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-chat-channel-id">get chat channel id</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-chat-channel-detail">get chat channel detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#delete-chat-channel">delete chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#leave-chat-channel">leave chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#join-chat-channel">join chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#add-channel-member">add channel member</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#remove-channel-member">remove channel member</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-chat-user-list">get chat user list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-message-list">chat message list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#create-chat-message">create chat message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#delete-chat-message">delete chat message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#search-chat-message">search chat message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-message-command">chat message command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-message-timeline">chat message timeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-drive-download-link">chat drive download link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-file-download">chat file download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-fetch-api-key">v1 fetch api key</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-register">v1 register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-events">v1 events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-get-messages">v1 get messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-send-messages">v1 send messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-message-detail">v1 message detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-messages-history">chat messages history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-register-queue">v1 register queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-user-uploads">v1 user uploads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-users-me-presence">v1 users me presence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-users-me">v1 users me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-server-settings">v1 server settings</a></li>
+</ul>
+</div>
+</section>
+<section id="meet">
+<h2>meet<a class="headerlink" href="#meet" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html">get join meet token</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html#create-meet">create meet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html#enter-meet">enter meet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html#get-meet-info">get meet info</a></li>
+</ul>
+</div>
+</section>
+<section id="kanban">
+<h2>kanban<a class="headerlink" href="#kanban" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html">list kanban project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#create-kanban-project">create kanban project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#move-kanban-project">move kanban project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#update-kanban-project">update kanban project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#delete-kanban-project">delete kanban project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#create-kanban-list">create kanban list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#move-kanban-list">move kanban list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#update-kanban-list">update kanban list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#delete-kanban-list">delete kanban list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#get-kanban-card-list">get kanban card list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#create-kanban-card">create kanban card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#get-kanban-card-detail">get kanban card detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#move-kanban-card">move kanban card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#update-kanban-card">update kanban card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#delete-kanban-card">delete kanban card</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#get-kanban-card-assigned">get kanban card assigned</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#kanban-project-stream">kanban project stream</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+<section id="drive">
+<h2>drive<a class="headerlink" href="#drive" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html">list folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-file">list file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-shared-file">list shared file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-trash-file">list trash file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-starred-file">list starred file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-recent-file">list recent file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-recent-office-document">list recent office document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-starred-office-document">list starred office document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-shared-office-document">list shared office document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-office-document">list office document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#touch-file">touch file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#upload-file">upload file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#create-file-folder">create file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#move-file-folder">move file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#delete-file-folder">delete file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#rename-file-folder">rename file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#get-download-link">get download link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#clone-file-folder">clone file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#star-file-folder">star file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#restore-file-folder">restore file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#search-file-folder">search file/folder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-drive-channel-files">list drive channel files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#get-sts-token">get STS token</a></li>
+</ul>
+</div>
+</section>
+<section id="docs">
+<h2>docs<a class="headerlink" href="#docs" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html">get document detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#create-document">create document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#rename-document">rename document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#download-document">download document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#create-document-change">create document change</a></li>
+</ul>
+</div>
+</section>
+<section id="sheets">
+<h2>sheets<a class="headerlink" href="#sheets" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html">get sheet detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html#create-sheet">create sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html#rename-sheet">rename sheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html#create-sheet-change">create sheet change</a></li>
+</ul>
+</div>
+</section>
+<section id="slides">
+<h2>slides<a class="headerlink" href="#slides" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html">get slides detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html#create-slides">create slides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html#rename-slides">rename slides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html#create-slides-change">create slides change</a></li>
+</ul>
+</div>
+</section>
+<section id="note">
+<h2>note<a class="headerlink" href="#note" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html">list note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#create-note">create note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#get-note-detail">get note detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#delete-note">delete note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#update-note">update note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#archive-note">archive note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#unarchive-note">unarchive note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#modify-note-starred-state">modify note starred state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#modify-note-important-state">modify note important state</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+<section id="user-setting">
+<h2>user &amp; setting<a class="headerlink" href="#user-setting" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_user_setting.html">用户与设置相关 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#get-user-info">get user info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#get-user-id">get user id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#get-setting-detail">get setting detail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-setting">update setting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-password">update password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#upload-profile-image">upload profile image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-locale-without-login">update locale (without login)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#change-password-api">change password (api)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#list-app-user">list app user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-app-user">create app user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#delete-app-user">delete app user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-rule-inbox-rule">create rule (inbox rule)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#list-share">list share</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-share">create share</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-share">update share</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#docs-home-list">docs home list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#list-dots">list dots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-dot-folder">create dot (folder)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-dot-file">create dot file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#admin-api-get-setting">admin api get setting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#admin-api-bind-mobile">admin api bind mobile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#admin-api-get-sms-code">admin api get sms code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-notice">create notice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#modelapi-filter-enc">modelapi filter enc</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="domain-admin">
+<h2>domain (admin)<a class="headerlink" href="#domain-admin" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_domain.html">域名管理 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#create-domain">create domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#list-domain">list domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#domain-info">domain info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#delete-domain">delete domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#check-domain-dns">check domain dns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#update-domain-inbox-rules">update domain inbox rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#json-api">页面路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="member-admin">
+<h2>member (admin)<a class="headerlink" href="#member-admin" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_member.html">成员管理 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#create-member">create member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#list-members">list members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#member-info">member info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#delete-member">delete member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#reset-member-password">reset member password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#json-api">页面路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="team-admin">
+<h2>team (admin)<a class="headerlink" href="#team-admin" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_team.html">团队与团队成员 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#list-teams">list teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#create-team">create team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#team-member-list-page">team member list (page)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#team-member-list-api">team member list (API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#create-team-member">create team member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#json-api">页面路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="checkout-payment">
+<h2>checkout &amp; payment<a class="headerlink" href="#checkout-payment" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_checkout.html">支付与结账 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#checkout-page">checkout page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#alipay-create-order-redirect">alipay create order (redirect)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#alipay-return-redirect">alipay return (redirect)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#paypal-create-order">paypal create order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#paypal-capture-order">paypal capture order</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="auth-login-signup-forgot-password">
+<h2>auth (login / signup / forgot password)<a class="headerlink" href="#auth-login-signup-forgot-password" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_auth.html">登录、注册与找回密码 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#login-page">login page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#login">login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#admin-login">admin login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#signup-page">signup page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#signup">signup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#get-mail-verify-code">get mail verify code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#forgot-password-page">forgot password page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#get-personal-forgot-password-mail-code">get personal forgot password mail code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#get-ent-admin-forgot-password-mail-code">get ent admin forgot password mail code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#reset-personal-password">reset personal password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#reset-ent-admin-password">reset ent admin password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#logout">logout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#change-password-api">change password (API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#geetest-preprocess-captcha">geetest preprocess (captcha)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="product-saas-callback">
+<h2>product (SaaS callback)<a class="headerlink" href="#product-saas-callback" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_product.html">SaaS 产品与计费回调 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_product.html#product-mail-webhook-callback">product mail (webhook/callback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_product.html#json-api">页面/其他路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="other-proxysend-acme-gravatar-install">
+<h2>other (proxysend / acme / gravatar / install)<a class="headerlink" href="#other-proxysend-acme-gravatar-install" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_misc.html">其他接口（代理、ACME、头像、安装）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#proxysend">proxysend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#proxydomain-page">proxydomain page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#acme-create-certificate">acme create certificate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#acme-renew-certificate">acme renew certificate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#gravatar">gravatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#install-script">install script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#acme-http-01-challenge">ACME HTTP-01 challenge</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">API</a><ul>
+<li><a class="reference internal" href="#mail">mail</a></li>
+<li><a class="reference internal" href="#contacts">contacts</a></li>
+<li><a class="reference internal" href="#calendar">calendar</a></li>
+<li><a class="reference internal" href="#ai">AI</a></li>
+<li><a class="reference internal" href="#chat">chat</a></li>
+<li><a class="reference internal" href="#meet">meet</a></li>
+<li><a class="reference internal" href="#kanban">kanban</a></li>
+<li><a class="reference internal" href="#drive">drive</a></li>
+<li><a class="reference internal" href="#docs">docs</a></li>
+<li><a class="reference internal" href="#sheets">sheets</a></li>
+<li><a class="reference internal" href="#slides">slides</a></li>
+<li><a class="reference internal" href="#note">note</a></li>
+<li><a class="reference internal" href="#user-setting">user &amp; setting</a></li>
+<li><a class="reference internal" href="#domain-admin">domain (admin)</a></li>
+<li><a class="reference internal" href="#member-admin">member (admin)</a></li>
+<li><a class="reference internal" href="#team-admin">team (admin)</a></li>
+<li><a class="reference internal" href="#checkout-payment">checkout &amp; payment</a></li>
+<li><a class="reference internal" href="#auth-login-signup-forgot-password">auth (login / signup / forgot password)</a></li>
+<li><a class="reference internal" href="#product-saas-callback">product (SaaS callback)</a></li>
+<li><a class="reference internal" href="#other-proxysend-acme-gravatar-install">other (proxysend / acme / gravatar / install)</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="models.html"
+                          title="previous chapter">database table structure update</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_mail.html"
+                          title="next chapter">list mail</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_mail.html" title="list mail"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="database table structure update"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

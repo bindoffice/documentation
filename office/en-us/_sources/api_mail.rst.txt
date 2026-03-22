@@ -1,0 +1,590 @@
+.. _api_mail:
+
+.. _api-mail-example:
+
+.. _mail.list:
+
+list mail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/list
+HTTP request method:
+    * GET
+request params:
+    * label (query, optional): 标签名，如 inbox / sent / drafts / trash / starred / all / unread / important 等，默认 inbox
+    * page (query, optional): 页码，默认 1
+    * page_count (query, optional): 每页条数，默认 100
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/mail/list?label=inbox&page=1&page_count=20"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "list": [ { "id": "1", "from": "", "to": "", "subject": "", "date": "", "labels": [] } ] },
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+
+get mail detail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/detail/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 邮件 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/mail/detail/1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "id": "1", "from": "", "to": "", "subject": "", "content": "", "labels": [] },
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+
+get mail info
+-------------------------------------------------------------
+interface address:
+    * /api/mail/info/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 邮件 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/mail/info/1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": {},
+          "code": 0,
+          "message": "OK"
+        }
+
+
+get mail original content
+-------------------------------------------------------------
+interface address:
+    * /api/mail/original/:id
+HTTP request method:
+    * GET
+request params:
+    * id (path): 邮件 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/mail/original/1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": {},
+          "code": 0,
+          "message": "OK"
+        }
+
+
+search mail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/search
+HTTP request method:
+    * POST
+request params:
+    * from (form, optional): 发件人
+    * to (form, optional): 收件人
+    * subject (form, optional): 主题
+    * include (form, optional): 包含关键词
+    * exclude (form, optional): 排除关键词
+    * before (form, optional): 日期之前，格式 2006-01-02
+    * after (form, optional): 日期之后，格式 2006-01-02
+    * label_id (form, optional): 标签 ID，多个用逗号分隔
+    * larger_size (form, optional): 大于字节数
+    * smaller_size (form, optional): 小于字节数
+    * page (form, optional): 页码
+    * page_size (form, optional): 每页条数
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/search" -d "subject=test&page=1&page_size=20"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "list": [] },
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+modify mail read state
+-------------------------------------------------------------
+interface address:
+    * /api/mail/readstate
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+    * state (form, required): 已读状态，true/false
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/readstate" -d "id=1,2,3&state=true"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "更新成功"
+        }
+
+modify mail starred state
+-------------------------------------------------------------
+interface address:
+    * /api/mail/starredstate
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+    * starred (form, required): 星标状态，true/false
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/starredstate" -d "id=1,2&starred=true"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+modify mail important state
+-------------------------------------------------------------
+interface address:
+    * /api/mail/importantstate
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+    * important (form, required): 重要状态，true/false
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/importantstate" -d "id=1&important=true"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+delete mail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔（移动到废件箱）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/delete" -d "id=1,2,3"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+permanently delete mail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/foreverdelete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/foreverdelete" -d "id=1,2"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+archive mail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/archive
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/archive" -d "id=1,2"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+unarchive mail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/unarchive
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/unarchive" -d "id=1,2"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+
+move mail to label group
+-------------------------------------------------------------
+interface address:
+    * /api/mail/movelabel
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+    * from_id (form, required): 原标签 ID
+    * to_id (form, required): 目标标签 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/movelabel" -d "id=1,2&from_id=1&to_id=2"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+delete mail label group
+-------------------------------------------------------------
+interface address:
+    * /api/mail/deletelabel
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+    * label_id (form, required): 要移除的标签 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/deletelabel" -d "id=1&label_id=2"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+apply mail label group
+-------------------------------------------------------------
+interface address:
+    * /api/mail/applylabel
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 邮件 ID，多个用逗号分隔
+    * label_id (form, required): 要应用的标签 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/applylabel" -d "id=1,2&label_id=3"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+
+send mail
+-------------------------------------------------------------
+interface address:
+    * /api/mail/send/:domain
+HTTP request method:
+    * POST
+request params:
+    * domain (path): 发件域名
+    * from (form): 发件人地址
+    * to (form): 收件人，多个用逗号分隔
+    * cc (form, optional): 抄送
+    * bcc (form, optional): 密送
+    * subject (form): 主题
+    * content (form): 正文内容
+    * 其他 MIME 相关字段按需传递
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/send/example.com" -d "from=user@example.com&to=to@example.com&subject=test&content=body"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+upload as attachment
+-------------------------------------------------------------
+interface address:
+    * /api/mail/asattachment
+HTTP request method:
+    * POST
+request params:
+    *  multipart/form-data 上传文件
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/mail/asattachment" -F "file=@/path/to/file"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "data": {},
+          "message": "OK"
+        }
+
+
+file upload (通用)
+-------------------------------------------------------------
+interface address:
+    * /api/file/upload
+HTTP request method:
+    * POST
+request params:
+    * multipart/form-data 上传文件
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/file/upload" -F "file=@/path/to/file"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "data": {},
+          "message": "OK"
+        }
+
+
+list label
+-------------------------------------------------------------
+interface address:
+    * /api/label/list
+HTTP request method:
+    * GET
+request params:
+    * type (query, optional): 筛选类型
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/label/list"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": [ { "id": "1", "name": "inbox", "color": "", "labelListDisplay": "1", "mailListDisplay": "1", "imapDisplay": "1" } ],
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+
+create label
+-------------------------------------------------------------
+interface address:
+    * /api/label/create
+HTTP request method:
+    * POST
+request params:
+    * name (form, required): 标签名称
+    * 其他可选字段见实现
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/label/create" -d "name=MyLabel"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+update label state
+-------------------------------------------------------------
+interface address:
+    * /api/label/updatestate
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/label/updatestate"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }
+
+
+delete label
+-------------------------------------------------------------
+interface address:
+    * /api/label/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 标签 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/label/delete" -d "id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK"
+        }

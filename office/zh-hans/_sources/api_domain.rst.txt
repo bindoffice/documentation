@@ -1,0 +1,192 @@
+.. _api_domain:
+
+域名管理 API
+==================================
+
+管理后台：域名相关接口，需管理员会话。
+
+.. _domain.create:
+
+create domain
+-------------------------------------------------------------
+interface address:
+    * /domain/create
+HTTP request method:
+    * POST
+request params:
+    * domain (form, required): 根域名，如 example.com
+    * type (form, required): 类型，0 或 1
+response code:
+    * 0: 成功
+    * 1: 参数错误、无权限、域名已存在等
+
+example::
+
+    curl -X POST "$BASE_URL/domain/create" -d "domain=example.com&type=0"
+
+response example：
+
+    * JSON::
+
+        { "code": 0, "message": "域名创建成功", "data": {} }
+
+
+.. _domain.list:
+
+list domain
+-------------------------------------------------------------
+interface address:
+    * /domain/list
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+response example：
+
+    * JSON::
+
+        {
+          "data": [
+            { "domain": "example.com", "url": "/domain/detail/example.com", "valid": "1", "type": 0 }
+          ],
+          "code": 0,
+          "message": "OK"
+        }
+
+
+.. _domain.info:
+
+domain info
+-------------------------------------------------------------
+interface address:
+    * /domain/info/:domain
+HTTP request method:
+    * GET
+request params:
+    * domain (path): 域名
+response code:
+    * common response
+
+response example：
+
+    * JSON::
+
+        {
+          "data": {
+            "ID": 1,
+            "domain": "example.com",
+            "type": 0,
+            "valid": true,
+            "dkim_pub_key": "...",
+            "dkim_record": "...",
+            "spf_record": "...",
+            "mxa_record": "...",
+            "mxb_record": "...",
+            "dmarc_record": "...",
+            "hostname": "...",
+            "inbox_rules": "...",
+            "spf_valid": true,
+            "dkim_valid": true,
+            "dmarc_valid": true,
+            "mxa_valid": true,
+            "mxb_valid": true
+          },
+          "code": 0,
+          "message": "OK"
+        }
+
+
+.. _domain.delete:
+
+delete domain
+-------------------------------------------------------------
+interface address:
+    * /domain/delete
+HTTP request method:
+    * POST
+request params:
+    * domain (form, required): 域名
+response code:
+    * 0: 成功
+    * 1: 参数错误、无权限等
+
+example::
+
+    curl -X POST "$BASE_URL/domain/delete" -d "domain=example.com"
+
+
+.. _domain.checkdns:
+
+check domain dns
+-------------------------------------------------------------
+interface address:
+    * /domain/checkdns
+HTTP request method:
+    * POST
+request params:
+    * domain (form, required): 域名
+response code:
+    * 0: 检查成功（含各记录是否通过）
+    * 1: 参数错误或检查失败
+
+response example：
+
+    * JSON::
+
+        {
+          "data": {
+            "valid": true,
+            "dkim_valid": true,
+            "mxa_valid": true,
+            "mxb_valid": true,
+            "dmarc_valid": true,
+            "spf_valid": true,
+            "current_mxa_record": "...",
+            "current_mxb_record": "...",
+            "current_spf_record": "...",
+            "current_dkim_record": "...",
+            "current_dmarc_record": "...",
+            "hostName": "...",
+            "cache_time": "300s"
+          },
+          "code": 0,
+          "message": "检查DNS记录成功"
+        }
+
+
+.. _domain.inboxrules:
+
+update domain inbox rules
+-------------------------------------------------------------
+interface address:
+    * /domain/inboxrules/:domain
+HTTP request method:
+    * POST
+request params:
+    * domain (path): 域名
+    * domain (form, required): 同上
+    * rule (form, required): 收信规则，多行，每行格式为「条件,动作,收件人」，收件人不能为本域
+response code:
+    * 0: 成功
+    * 1: 域名未通过 DNS 验证或规则格式错误
+
+example::
+
+    curl -X POST "$BASE_URL/domain/inboxrules/example.com" -d "domain=example.com&rule=..."
+
+response example：
+
+    * JSON::
+
+        { "data": { "ID": 1, "domain": "example.com", "type": 0, "valid": "1", "hostname": "...", "inbox_rules": "..." }, "code": 0, "message": "更新域名收信规则成功" }
+
+
+页面路由（非 JSON API）
+-------------------------------------------------------------
+    * GET /domain - 域名管理页
+    * GET /domain/detail/:domain - 域名详情页
+    * GET /domain/inboxrules/:domain - 收信规则页
+    * GET /domain/delete/:domain - 删除域名确认页

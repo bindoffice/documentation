@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>get document detail &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="get sheet detail" href="api_sheets.html" />
+    <link rel="prev" title="list folder" href="api_drive.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_sheets.html" title="get sheet detail"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_drive.html" title="list folder"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get document detail</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="get-document-detail">
+<span id="docs-detail"></span><span id="api-docs-example"></span><span id="api-docs"></span><h1>get document detail<a class="headerlink" href="#get-document-detail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/docs/detail/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (path): 文档 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/docs/detail/1&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;parent_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;ct&quot;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-document">
+<span id="docs-create"></span><h1>create document<a class="headerlink" href="#create-document" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/docs/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>parent_id (form, optional): 父目录 ID，默认 0</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/docs/create&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;parent_id=0&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;文档创建成功&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;locale&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;parent_id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;未命名.docx&quot;</span><span class="p">,</span> <span class="s2">&quot;ct&quot;</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="rename-document">
+<span id="docs-rename"></span><h1>rename document<a class="headerlink" href="#rename-document" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/docs/rename</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 文档 ID</p></li>
+<li><p>name (form, required): 新名称</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/docs/rename&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;name=新文档.docx&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="download-document">
+<span id="docs-download"></span><h1>download document<a class="headerlink" href="#download-document" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/docs/download</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (query): 文档 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/docs/download?id=1&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>返回文件流或重定向到下载地址</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-document-change">
+<span id="docs-createchange"></span><h1>create document change<a class="headerlink" href="#create-document-change" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/docs/createchange</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 文档 ID</p></li>
+<li><p>变更内容等（见实现，用于协同编辑）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/docs/createchange&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">get document detail</a></li>
+<li><a class="reference internal" href="#create-document">create document</a></li>
+<li><a class="reference internal" href="#rename-document">rename document</a></li>
+<li><a class="reference internal" href="#download-document">download document</a></li>
+<li><a class="reference internal" href="#create-document-change">create document change</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_drive.html"
+                          title="previous chapter">list folder</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_sheets.html"
+                          title="next chapter">get sheet detail</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_sheets.html" title="get sheet detail"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_drive.html" title="list folder"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">get document detail</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

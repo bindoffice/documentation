@@ -1,0 +1,213 @@
+.. hedwi documentation master file, created by
+   sphinx-quickstart on Tue Jun  4 14:19:04 2019.
+
+API
+==================================
+
+
+.. raw:: html
+
+        <a target="_blank" href="https://hedwi.com" >BindOffice官网 </a>
+
+
+mail
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_mail
+   
+   
+
+contacts
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_contacts
+
+
+
+
+calendar  
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_calendar
+
+
+
+
+AI
+-------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_ai
+
+
+chat
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_chat
+
+
+
+
+meet
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_meet
+
+
+
+
+kanban
+--------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_kanban
+
+* :ref:`search`
+
+
+
+drive
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_drive
+
+
+
+
+docs
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_docs
+
+
+
+
+sheets
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_sheets
+
+
+
+
+slides
+--------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_slides
+
+
+
+note
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_note
+
+* :ref:`search`
+
+
+user & setting
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_user_setting
+
+
+domain (admin)
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_domain
+
+
+member (admin)
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_member
+
+
+team (admin)
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_team
+
+
+
+checkout & payment
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_checkout
+
+
+auth (login / signup / forgot password)
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_auth
+
+
+product (SaaS callback)
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_product
+
+
+other (proxysend / acme / gravatar / install)
+------------------
+
+.. toctree::
+   :maxdepth: 2
+
+   api_misc
+

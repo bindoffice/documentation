@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>list mail &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="list contact" href="api_contacts.html" />
+    <link rel="prev" title="API" href="api_index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_contacts.html" title="list contact"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_index.html" title="API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list mail</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="list-mail">
+<span id="mail-list"></span><span id="api-mail-example"></span><span id="api-mail"></span><h1>list mail<a class="headerlink" href="#list-mail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/list</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>label (query, optional): 标签名，如 inbox / sent / drafts / trash / starred / all / unread / important 等，默认 inbox</p></li>
+<li><p>page (query, optional): 页码，默认 1</p></li>
+<li><p>page_count (query, optional): 每页条数，默认 100</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/mail/list?label=inbox&amp;page=1&amp;page_count=20&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">}</span> <span class="p">]</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ts&quot;</span><span class="p">:</span> <span class="mi">1234567890</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-mail-detail">
+<h1>get mail detail<a class="headerlink" href="#get-mail-detail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/detail/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (path): 邮件 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/mail/detail/1&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;subject&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ts&quot;</span><span class="p">:</span> <span class="mi">1234567890</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-mail-info">
+<h1>get mail info<a class="headerlink" href="#get-mail-info" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/info/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (path): 邮件 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/mail/info/1&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-mail-original-content">
+<h1>get mail original content<a class="headerlink" href="#get-mail-original-content" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/original/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (path): 邮件 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/mail/original/1&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="search-mail">
+<h1>search mail<a class="headerlink" href="#search-mail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/search</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>from (form, optional): 发件人</p></li>
+<li><p>to (form, optional): 收件人</p></li>
+<li><p>subject (form, optional): 主题</p></li>
+<li><p>include (form, optional): 包含关键词</p></li>
+<li><p>exclude (form, optional): 排除关键词</p></li>
+<li><p>before (form, optional): 日期之前，格式 2006-01-02</p></li>
+<li><p>after (form, optional): 日期之后，格式 2006-01-02</p></li>
+<li><p>label_id (form, optional): 标签 ID，多个用逗号分隔</p></li>
+<li><p>larger_size (form, optional): 大于字节数</p></li>
+<li><p>smaller_size (form, optional): 小于字节数</p></li>
+<li><p>page (form, optional): 页码</p></li>
+<li><p>page_size (form, optional): 每页条数</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/search&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;subject=test&amp;page=1&amp;page_size=20&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ts&quot;</span><span class="p">:</span> <span class="mi">1234567890</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modify-mail-read-state">
+<h1>modify mail read state<a class="headerlink" href="#modify-mail-read-state" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/readstate</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+<li><p>state (form, required): 已读状态，true/false</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/readstate&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2,3&amp;state=true&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;更新成功&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modify-mail-starred-state">
+<h1>modify mail starred state<a class="headerlink" href="#modify-mail-starred-state" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/starredstate</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+<li><p>starred (form, required): 星标状态，true/false</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/starredstate&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2&amp;starred=true&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modify-mail-important-state">
+<h1>modify mail important state<a class="headerlink" href="#modify-mail-important-state" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/importantstate</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+<li><p>important (form, required): 重要状态，true/false</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/importantstate&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;important=true&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-mail">
+<h1>delete mail<a class="headerlink" href="#delete-mail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔（移动到废件箱）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/delete&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2,3&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="permanently-delete-mail">
+<h1>permanently delete mail<a class="headerlink" href="#permanently-delete-mail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/foreverdelete</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/foreverdelete&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="archive-mail">
+<h1>archive mail<a class="headerlink" href="#archive-mail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/archive</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/archive&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="unarchive-mail">
+<h1>unarchive mail<a class="headerlink" href="#unarchive-mail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/unarchive</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/unarchive&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="move-mail-to-label-group">
+<h1>move mail to label group<a class="headerlink" href="#move-mail-to-label-group" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/movelabel</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+<li><p>from_id (form, required): 原标签 ID</p></li>
+<li><p>to_id (form, required): 目标标签 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/movelabel&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2&amp;from_id=1&amp;to_id=2&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-mail-label-group">
+<h1>delete mail label group<a class="headerlink" href="#delete-mail-label-group" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/deletelabel</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+<li><p>label_id (form, required): 要移除的标签 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/deletelabel&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;label_id=2&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="apply-mail-label-group">
+<h1>apply mail label group<a class="headerlink" href="#apply-mail-label-group" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/applylabel</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 邮件 ID，多个用逗号分隔</p></li>
+<li><p>label_id (form, required): 要应用的标签 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/applylabel&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1,2&amp;label_id=3&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="send-mail">
+<h1>send mail<a class="headerlink" href="#send-mail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/send/:domain</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>domain (path): 发件域名</p></li>
+<li><p>from (form): 发件人地址</p></li>
+<li><p>to (form): 收件人，多个用逗号分隔</p></li>
+<li><p>cc (form, optional): 抄送</p></li>
+<li><p>bcc (form, optional): 密送</p></li>
+<li><p>subject (form): 主题</p></li>
+<li><p>content (form): 正文内容</p></li>
+<li><p>其他 MIME 相关字段按需传递</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/send/example.com&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;from=user@example.com&amp;to=to@example.com&amp;subject=test&amp;content=body&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="upload-as-attachment">
+<h1>upload as attachment<a class="headerlink" href="#upload-as-attachment" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/mail/asattachment</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>multipart/form-data 上传文件</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/mail/asattachment&quot;</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;file=@/path/to/file&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="file-upload">
+<h1>file upload (通用)<a class="headerlink" href="#file-upload" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/file/upload</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>multipart/form-data 上传文件</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/file/upload&quot;</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;file=@/path/to/file&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-label">
+<h1>list label<a class="headerlink" href="#list-label" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/label/list</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>type (query, optional): 筛选类型</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/label/list&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;inbox&quot;</span><span class="p">,</span> <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;labelListDisplay&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;mailListDisplay&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;imapDisplay&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span> <span class="p">}</span> <span class="p">],</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ts&quot;</span><span class="p">:</span> <span class="mi">1234567890</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-label">
+<h1>create label<a class="headerlink" href="#create-label" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/label/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>name (form, required): 标签名称</p></li>
+<li><p>其他可选字段见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/label/create&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;name=MyLabel&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-label-state">
+<h1>update label state<a class="headerlink" href="#update-label-state" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/label/updatestate</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/label/updatestate&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-label">
+<h1>delete label<a class="headerlink" href="#delete-label" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/label/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (form, required): 标签 ID</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/label/delete&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&quot;</span>
+</pre></div>
+</div>
+<p>response example：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">list mail</a></li>
+<li><a class="reference internal" href="#get-mail-detail">get mail detail</a></li>
+<li><a class="reference internal" href="#get-mail-info">get mail info</a></li>
+<li><a class="reference internal" href="#get-mail-original-content">get mail original content</a></li>
+<li><a class="reference internal" href="#search-mail">search mail</a></li>
+<li><a class="reference internal" href="#modify-mail-read-state">modify mail read state</a></li>
+<li><a class="reference internal" href="#modify-mail-starred-state">modify mail starred state</a></li>
+<li><a class="reference internal" href="#modify-mail-important-state">modify mail important state</a></li>
+<li><a class="reference internal" href="#delete-mail">delete mail</a></li>
+<li><a class="reference internal" href="#permanently-delete-mail">permanently delete mail</a></li>
+<li><a class="reference internal" href="#archive-mail">archive mail</a></li>
+<li><a class="reference internal" href="#unarchive-mail">unarchive mail</a></li>
+<li><a class="reference internal" href="#move-mail-to-label-group">move mail to label group</a></li>
+<li><a class="reference internal" href="#delete-mail-label-group">delete mail label group</a></li>
+<li><a class="reference internal" href="#apply-mail-label-group">apply mail label group</a></li>
+<li><a class="reference internal" href="#send-mail">send mail</a></li>
+<li><a class="reference internal" href="#upload-as-attachment">upload as attachment</a></li>
+<li><a class="reference internal" href="#file-upload">file upload (通用)</a></li>
+<li><a class="reference internal" href="#list-label">list label</a></li>
+<li><a class="reference internal" href="#create-label">create label</a></li>
+<li><a class="reference internal" href="#update-label-state">update label state</a></li>
+<li><a class="reference internal" href="#delete-label">delete label</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_index.html"
+                          title="previous chapter">API</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_contacts.html"
+                          title="next chapter">list contact</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_contacts.html" title="list contact"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_index.html" title="API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">list mail</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BindOffice 办公套件私有部署文档 &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="重要更新" href="important.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="important.html" title="重要更新"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">BindOffice 办公套件私有部署文档</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="bindoffice">
+<h1>BindOffice 办公套件私有部署文档<a class="headerlink" href="#bindoffice" title="Link to this heading">¶</a></h1>
+<a target="_blank" href="https://hedwi.com" >BindOffice官网</a>
+<br/>
+<a href="/document/mail-suite/zh-hans/" >中文版</a>
+<br/>
+<a href="/document/mail-suite/en-us/" >English version</a>
+
+<br/><section id="id1">
+<h2>目录<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="important.html">重要更新</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker-install.html">docker部署</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#about">关于</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#requirements">0. 环境要求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#configure-dns">1. 配置DNS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#install-docker-docker-compose-git">2. 安装docker, docker-compose, git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#install">3. 安装</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#automatic-generation-of-free-ssl-certificates">4. 自动生成免费SSL证书</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#restart-the-service">5. 重启服务</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker-install.html#use-https-to-access-and-login">6. 使用https访问 登录</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="firewall.html">防火墙配置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="firewall.html#configure-the-firewall">配置防火墙</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="upgrade.html">升级</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html#read-update-release-notes">1. 阅读更新发布说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html#backup">2. 备份</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html#update-database-tables">3. 更新数据库表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="upgrade.html#id2">4. 升级</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">数据库表结构更新</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.html#id1">2025-10-23</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html#id2">2024-11-18</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_index.html">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#mail">邮箱</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#contacts">通讯录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#calendar">日历</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#ai">AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#chat">聊天</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#meet">会议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#kanban">看板</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#drive">云盘</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#docs">文档</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#sheets">表格</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#slides">演示</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#note">笔记</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#user-setting">user &amp; setting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#domain-admin">domain (admin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#member-admin">member (admin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#team-admin">team (admin)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#checkout-payment">checkout &amp; payment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#auth-login-signup-forgot-password">auth (login / signup / forgot password)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#product-saas-callback">product (SaaS callback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_index.html#other-proxysend-acme-gravatar-install">other (proxysend / acme / gravatar / install)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="#">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">BindOffice 办公套件私有部署文档</a><ul>
+<li><a class="reference internal" href="#id1">目录</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="important.html"
+                          title="next chapter">重要更新</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="important.html" title="重要更新"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">BindOffice 办公套件私有部署文档</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

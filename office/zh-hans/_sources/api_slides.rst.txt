@@ -1,0 +1,106 @@
+.. _api_slides:
+
+.. _api-slides-example:
+
+
+.. _slides.detail:
+
+get slides detail
+-------------------------------------------------------------
+interface address:
+    * /api/slides/detail/:id
+HTTP request method:
+    * POST
+request params:
+    * id (path): 演示文档 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/slides/detail/:id"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+.. _slides.create:
+
+create slides
+-------------------------------------------------------------
+interface address:
+    * /api/slides/create
+HTTP request method:
+    * POST
+request params:
+    * parent_id (form, optional): 父目录 ID
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/slides/create"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+.. _slides.rename:
+
+rename slides
+-------------------------------------------------------------
+interface address:
+    * /api/slides/rename
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文档 ID
+    * name (form, required): 新名称
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/slides/rename"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+.. _slides.createchange:
+
+create slides change
+-------------------------------------------------------------
+interface address:
+    * /api/slides/createchange
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文档 ID
+    * 变更内容（协同编辑，见实现）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/slides/createchange"
+    
+response example：
+
+    * JSON::
+
+        {
+        }

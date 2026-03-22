@@ -1,0 +1,208 @@
+.. _api_auth:
+
+登录、注册与找回密码 API
+==================================
+
+认证相关：登录、注册、找回密码、验证码等。
+
+.. _login.page:
+
+login page
+-------------------------------------------------------------
+interface address:
+    * /login
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * 200: 登录页 HTML
+
+
+.. _login:
+
+login
+-------------------------------------------------------------
+interface address:
+    * /login
+HTTP request method:
+    * POST
+request params:
+    * 见实现：通常为 email、password 等表单字段
+response code:
+    * 200: 成功则写 session 并重定向/返回；失败返回错误信息
+
+
+.. _adminlogin:
+
+admin login
+-------------------------------------------------------------
+interface address:
+    * /adminlogin
+HTTP request method:
+    * POST
+request params:
+    * 同登录（管理员账号）
+response code:
+    * 200: 成功则写管理员 session
+
+
+.. _signup.page:
+
+signup page
+-------------------------------------------------------------
+interface address:
+    * /signup
+    * /signupemail
+HTTP request method:
+    * GET
+request params:
+    * admin (query, optional): true 表示管理员注册入口
+response code:
+    * 200: 注册页 HTML
+
+
+.. _signup:
+
+signup
+-------------------------------------------------------------
+interface address:
+    * /signup
+    * /adminsignup
+    * /normalsignup
+HTTP request method:
+    * POST
+request params:
+    * 见实现：通常含 email、password、name、backupemail、admin、company、code（验证码）、geetest_challenge/validate/seccode 等
+response code:
+    * 200: 成功或错误信息
+
+
+.. _getmailcode:
+
+get mail verify code
+-------------------------------------------------------------
+interface address:
+    * /getmailcode
+HTTP request method:
+    * POST
+request params:
+    * 见实现：邮箱等
+response code:
+    * 200: 发送验证码结果
+
+
+.. _forgotpassword.page:
+
+forgot password page
+-------------------------------------------------------------
+interface address:
+    * /forgotpassword
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * 200: 找回密码页 HTML
+
+
+.. _forgotpassword.personal:
+
+get personal forgot password mail code
+-------------------------------------------------------------
+interface address:
+    * /forgotpassword/personal
+HTTP request method:
+    * POST
+request params:
+    * 见实现：邮箱等
+response code:
+    * 200: 发送找回密码邮件/验证码
+
+
+.. _forgotpassword.entadmin:
+
+get ent admin forgot password mail code
+-------------------------------------------------------------
+interface address:
+    * /forgotpassword/entadmin
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * 200: 发送企业管理员找回密码邮件
+
+
+.. _resetpassword.personal:
+
+reset personal password
+-------------------------------------------------------------
+interface address:
+    * /resetpassword/personal
+HTTP request method:
+    * POST
+request params:
+    * 见实现：验证码、新密码等
+response code:
+    * 200: 重置结果
+
+
+.. _resetpassword.entadmin:
+
+reset ent admin password
+-------------------------------------------------------------
+interface address:
+    * /resetpassword/entadmin
+HTTP request method:
+    * POST
+request params:
+    * 见实现
+response code:
+    * 200: 重置结果
+
+
+.. _logout:
+
+logout
+-------------------------------------------------------------
+interface address:
+    * /logout
+HTTP request method:
+    * POST
+request params:
+    * -
+response code:
+    * 200: 清除 session 并重定向/返回
+
+
+.. _changepassword.api:
+
+change password (API)
+-------------------------------------------------------------
+interface address:
+    * /api/changepassword
+HTTP request method:
+    * POST
+request params:
+    * 见实现（当前密码、新密码等）
+response code:
+    * common response
+
+说明：已登录用户修改密码，详见 :ref:`api_user_setting` 中 :ref:`changepassword`。
+
+
+.. _gt.preprocess:
+
+geetest preprocess (captcha)
+-------------------------------------------------------------
+interface address:
+    * /gt_preprocess
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * 200: 极验预处理/挑战数据
+
+说明：注册等场景的人机验证预处理。

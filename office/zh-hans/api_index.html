@@ -1,0 +1,527 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>API &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="列出邮件" href="api_mail.html" />
+    <link rel="prev" title="数据库表结构更新" href="models.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_mail.html" title="列出邮件"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="数据库表结构更新"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
+<a target="_blank" href="https://hedwi.com" >BindOffice官网 </a><section id="mail">
+<h2>邮箱<a class="headerlink" href="#mail" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html">列出邮件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#get-mail-detail">获取邮件详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#get-mail-info">get mail info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#get-mail-original-content">获取邮件原始内容</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#search-mail">搜索邮件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#modify-mail-read-state">修改邮件阅读状态</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#modify-mail-starred-state">修改邮件星标状态</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#modify-mail-important-state">修改邮件是否重要状态</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#delete-mail">删除邮件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#permanently-delete-mail">永久删除邮件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#archive-mail">归档邮件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#unarchive-mail">取消归档邮件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#move-mail-to-label-group">移动邮件到标签分组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#delete-mail-label-group">删除邮件标签分组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#apply-mail-label-group">应用邮件标签分组</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#send-mail">发送邮件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#upload-as-attachment">upload as attachment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#file-upload">file upload (通用)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#list-label">list label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#create-label">create label</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#update-label-state">update label state</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_mail.html#delete-label">delete label</a></li>
+</ul>
+</div>
+</section>
+<section id="contacts">
+<h2>通讯录<a class="headerlink" href="#contacts" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html">列出联系人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#create-contact">创建联系人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#search-contact">搜索联系人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#update-contact">更新联系人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#get-contact-detail">获取联系人详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#delete-contact">删除联系人</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#list-contact-label">列出联系人标签</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#create-contact-label">创建联系人标签</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#delete-contact-label">删除联系人标签</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#apply-contact-label">应用联系人标签</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_contacts.html#modify-contact-starred-state">修改联系人星标状态</a></li>
+</ul>
+</div>
+</section>
+<section id="calendar">
+<h2>日历<a class="headerlink" href="#calendar" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html">列出日历</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#create-calendar">创建日历集合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#update-calendar">更新日历集合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#list-calendar-event">列出日历事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#get-calendar-event-detail">获取日历事件详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#create-calendar-event">创建日历事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#update-calendar-event">修改日历事件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_calendar.html#delete-calendar-event">删除日历事件</a></li>
+</ul>
+</div>
+</section>
+<section id="ai">
+<h2>AI<a class="headerlink" href="#ai" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html">列出对话列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#create-chat-thread">创建对话</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#id1">列出对话列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#move-chat-thread">移动对话</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#update-chat-thread">更新对话</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#delete-chat-thread">删除对话</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#list-chat-content">列出对话消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#create-chat-content">创建对话消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#delete-chat-content">删除对话消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_ai.html#chat-content-stream">对话消息流</a></li>
+</ul>
+</div>
+</section>
+<section id="chat">
+<h2>聊天<a class="headerlink" href="#chat" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html">list chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#create-chat-channel">create chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-or-create-chat-channel">get or create chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-chat-channel-id">get chat channel id</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-chat-channel-detail">get chat channel detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#delete-chat-channel">delete chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#leave-chat-channel">leave chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#join-chat-channel">join chat channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#add-channel-member">add channel member</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#remove-channel-member">remove channel member</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#get-chat-user-list">get chat user list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-message-list">chat message list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#create-chat-message">create chat message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#delete-chat-message">delete chat message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#search-chat-message">search chat message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-message-command">chat message command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-message-timeline">chat message timeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-drive-download-link">chat drive download link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-file-download">chat file download</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-fetch-api-key">v1 fetch api key</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-register">v1 register</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-events">v1 events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-get-messages">v1 get messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-send-messages">v1 send messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-message-detail">v1 message detail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#chat-messages-history">chat messages history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-register-queue">v1 register queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-user-uploads">v1 user uploads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-users-me-presence">v1 users me presence</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-users-me">v1 users me</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_chat.html#v1-server-settings">v1 server settings</a></li>
+</ul>
+</div>
+</section>
+<section id="meet">
+<h2>会议<a class="headerlink" href="#meet" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html">获取加入会议的授权码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html#create-meet">创建会议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html#enter-meet">进入会议</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_meet.html#get-meet-info">获取会议信息</a></li>
+</ul>
+</div>
+</section>
+<section id="kanban">
+<h2>看板<a class="headerlink" href="#kanban" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html">列出看板项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#create-kanban-project">创建看板项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#move-kanban-project">移动看板项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#update-kanban-project">更新看板项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#delete-kanban-project">删除看板项目</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#create-kanban-list">创建看板列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#move-kanban-list">移动看板列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#update-kanban-list">更新看板列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#delete-kanban-list">删除看板列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#get-kanban-card-list">获取任务列表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#create-kanban-card">创建任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#get-kanban-card-detail">获取任务详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#move-kanban-card">移动任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#update-kanban-card">更新任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#delete-kanban-card">删除任务</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#get-kanban-card-assigned">get kanban card assigned</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_kanban.html#kanban-project-stream">kanban project stream</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+<section id="drive">
+<h2>云盘<a class="headerlink" href="#drive" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html">列出文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-file">列出文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-shared-file">列出共享文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-trash-file">列出回收站文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-starred-file">列出星标文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-recent-file">列出最近访问文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-recent-office-document">列出最近访问Office文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-starred-office-document">列出星标Office文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-shared-office-document">列出共享Office文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-office-document">列出Office文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#touch-file">访问文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#upload-file">上传文件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#create-file-folder">创建文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#move-file-folder">移动文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#delete-file-folder">删除文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#rename-file-folder">重命名文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#get-download-link">获取下载链接</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#clone-file-folder">克隆文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#star-file-folder">星标文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#restore-file-folder">恢复文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#search-file-folder">搜索文件/文件夹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#list-drive-channel-files">list drive channel files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_drive.html#get-sts-token">get STS token</a></li>
+</ul>
+</div>
+</section>
+<section id="docs">
+<h2>文档<a class="headerlink" href="#docs" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html">获取文档详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#create-document">创建文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#rename-document">重命名文档</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#download-document">download document</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_docs.html#create-document-change">创建文档变更</a></li>
+</ul>
+</div>
+</section>
+<section id="sheets">
+<h2>表格<a class="headerlink" href="#sheets" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html">获取表格详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html#create-sheet">创建表格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html#rename-sheet">重命名表格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_sheets.html#create-sheet-change">创建表格变更</a></li>
+</ul>
+</div>
+</section>
+<section id="slides">
+<h2>演示<a class="headerlink" href="#slides" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html">获取演示详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html#create-slides">创建演示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html#rename-slides">重命名演示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_slides.html#create-slides-change">创建演示变更</a></li>
+</ul>
+</div>
+</section>
+<section id="note">
+<h2>笔记<a class="headerlink" href="#note" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html">列出笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#create-note">创建笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#get-note-detail">获取笔记详情</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#delete-note">删除笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#update-note">update note</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#archive-note">归档笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#unarchive-note">取消归档笔记</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#modify-note-starred-state">设置笔记星标状态</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_note.html#modify-note-important-state">设置笔记重要状态</a></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+<section id="user-setting">
+<h2>user &amp; setting<a class="headerlink" href="#user-setting" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_user_setting.html">用户与设置相关 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#get-user-info">get user info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#get-user-id">get user id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#get-setting-detail">get setting detail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-setting">update setting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-password">update password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#upload-profile-image">upload profile image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-locale-without-login">update locale (without login)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#change-password-api">change password (api)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#list-app-user">list app user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-app-user">create app user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#delete-app-user">delete app user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-rule-inbox-rule">create rule (inbox rule)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#list-share">list share</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-share">create share</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#update-share">update share</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#docs-home-list">docs home list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#list-dots">list dots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-dot-folder">create dot (folder)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-dot-file">create dot file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#admin-api-get-setting">admin api get setting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#admin-api-bind-mobile">admin api bind mobile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#admin-api-get-sms-code">admin api get sms code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#create-notice">create notice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_user_setting.html#modelapi-filter-enc">modelapi filter enc</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="domain-admin">
+<h2>domain (admin)<a class="headerlink" href="#domain-admin" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_domain.html">域名管理 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#create-domain">create domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#list-domain">list domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#domain-info">domain info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#delete-domain">delete domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#check-domain-dns">check domain dns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#update-domain-inbox-rules">update domain inbox rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_domain.html#json-api">页面路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="member-admin">
+<h2>member (admin)<a class="headerlink" href="#member-admin" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_member.html">成员管理 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#create-member">create member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#list-members">list members</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#member-info">member info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#delete-member">delete member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#reset-member-password">reset member password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_member.html#json-api">页面路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="team-admin">
+<h2>team (admin)<a class="headerlink" href="#team-admin" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_team.html">团队与团队成员 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#list-teams">list teams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#create-team">create team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#team-member-list-page">team member list (page)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#team-member-list-api">team member list (API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#create-team-member">create team member</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_team.html#json-api">页面路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="checkout-payment">
+<h2>checkout &amp; payment<a class="headerlink" href="#checkout-payment" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_checkout.html">支付与结账 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#checkout-page">checkout page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#alipay-create-order-redirect">alipay create order (redirect)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#alipay-return-redirect">alipay return (redirect)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#paypal-create-order">paypal create order</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_checkout.html#paypal-capture-order">paypal capture order</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="auth-login-signup-forgot-password">
+<h2>auth (login / signup / forgot password)<a class="headerlink" href="#auth-login-signup-forgot-password" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_auth.html">登录、注册与找回密码 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#login-page">login page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#login">login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#admin-login">admin login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#signup-page">signup page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#signup">signup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#get-mail-verify-code">get mail verify code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#forgot-password-page">forgot password page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#get-personal-forgot-password-mail-code">get personal forgot password mail code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#get-ent-admin-forgot-password-mail-code">get ent admin forgot password mail code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#reset-personal-password">reset personal password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#reset-ent-admin-password">reset ent admin password</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#logout">logout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#change-password-api">change password (API)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_auth.html#geetest-preprocess-captcha">geetest preprocess (captcha)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="product-saas-callback">
+<h2>product (SaaS callback)<a class="headerlink" href="#product-saas-callback" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_product.html">SaaS 产品与计费回调 API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_product.html#product-mail-webhook-callback">product mail (webhook/callback)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_product.html#json-api">页面/其他路由（非 JSON API）</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="other-proxysend-acme-gravatar-install">
+<h2>other (proxysend / acme / gravatar / install)<a class="headerlink" href="#other-proxysend-acme-gravatar-install" title="Link to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_misc.html">其他接口（代理、ACME、头像、安装）</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#proxysend">proxysend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#proxydomain-page">proxydomain page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#acme-create-certificate">acme create certificate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#acme-renew-certificate">acme renew certificate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#gravatar">gravatar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#install-script">install script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_misc.html#acme-http-01-challenge">ACME HTTP-01 challenge</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">API</a><ul>
+<li><a class="reference internal" href="#mail">邮箱</a></li>
+<li><a class="reference internal" href="#contacts">通讯录</a></li>
+<li><a class="reference internal" href="#calendar">日历</a></li>
+<li><a class="reference internal" href="#ai">AI</a></li>
+<li><a class="reference internal" href="#chat">聊天</a></li>
+<li><a class="reference internal" href="#meet">会议</a></li>
+<li><a class="reference internal" href="#kanban">看板</a></li>
+<li><a class="reference internal" href="#drive">云盘</a></li>
+<li><a class="reference internal" href="#docs">文档</a></li>
+<li><a class="reference internal" href="#sheets">表格</a></li>
+<li><a class="reference internal" href="#slides">演示</a></li>
+<li><a class="reference internal" href="#note">笔记</a></li>
+<li><a class="reference internal" href="#user-setting">user &amp; setting</a></li>
+<li><a class="reference internal" href="#domain-admin">domain (admin)</a></li>
+<li><a class="reference internal" href="#member-admin">member (admin)</a></li>
+<li><a class="reference internal" href="#team-admin">team (admin)</a></li>
+<li><a class="reference internal" href="#checkout-payment">checkout &amp; payment</a></li>
+<li><a class="reference internal" href="#auth-login-signup-forgot-password">auth (login / signup / forgot password)</a></li>
+<li><a class="reference internal" href="#product-saas-callback">product (SaaS callback)</a></li>
+<li><a class="reference internal" href="#other-proxysend-acme-gravatar-install">other (proxysend / acme / gravatar / install)</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="models.html"
+                          title="previous chapter">数据库表结构更新</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_mail.html"
+                          title="next chapter">列出邮件</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_mail.html" title="列出邮件"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="models.html" title="数据库表结构更新"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

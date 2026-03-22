@@ -1,0 +1,424 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>列出日历 &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="列出对话列表" href="api_ai.html" />
+    <link rel="prev" title="列出联系人" href="api_contacts.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_ai.html" title="列出对话列表"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_contacts.html" title="列出联系人"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出日历</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="list-calendar">
+<span id="calendar-list"></span><span id="api-calendar-example"></span><span id="api-calendar"></span><h1>列出日历<a class="headerlink" href="#list-calendar" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/collection/list</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>limit (query, optional): 条数限制</p></li>
+<li><p>offset (query, optional): 偏移</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/calendar/collection/list&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-calendar">
+<h1>创建日历集合<a class="headerlink" href="#create-calendar" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/collection/create</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>name (form, required): 日历名称</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/calendar/collection/create&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-calendar">
+<h1>更新日历集合<a class="headerlink" href="#update-calendar" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/collection/update</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 日历集合 ID</p></li>
+<li><p>name (form, optional): 名称等，见实现</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/calendar/collection/update&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-calendar-event">
+<h1>列出日历事件<a class="headerlink" href="#list-calendar-event" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/event/list</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>collection_id (query, optional): 日历集合 ID</p></li>
+<li><p>start_ts / end_ts (query, optional): 时间范围</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/calendar/event/list&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-calendar-event-detail">
+<h1>获取日历事件详情<a class="headerlink" href="#get-calendar-event-detail" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/event/detail/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (path): 事件 ID</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/calendar/event/detail/:id&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-calendar-event">
+<h1>创建日历事件<a class="headerlink" href="#create-calendar-event" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/event/create</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>title (form, required): 标题</p></li>
+<li><p>dtstart (form, required): 开始时间戳</p></li>
+<li><p>dtend (form, required): 结束时间戳</p></li>
+<li><p>type (form, optional): 类型</p></li>
+<li><p>collection_id (form, optional): 日历集合 ID</p></li>
+<li><p>allday (form, optional): 是否全天</p></li>
+<li><p>interval / freq / byweek / bymonth / until / count (form, optional): 重复规则</p></li>
+<li><p>meet_id (form, optional): 会议 ID</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/calendar/event/create&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;title=会议&amp;dtstart=1234567890&amp;dtend=1234567900&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-calendar-event">
+<h1>修改日历事件<a class="headerlink" href="#update-calendar-event" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/event/update</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 事件 ID</p></li>
+<li><p>title / dtstart / dtend / collection_id 等（见实现）</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/calendar/event/update&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-calendar-event">
+<h1>删除日历事件<a class="headerlink" href="#delete-calendar-event" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/calendar/event/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 事件 ID</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/calendar/event/delete&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">列出日历</a></li>
+<li><a class="reference internal" href="#create-calendar">创建日历集合</a></li>
+<li><a class="reference internal" href="#update-calendar">更新日历集合</a></li>
+<li><a class="reference internal" href="#list-calendar-event">列出日历事件</a></li>
+<li><a class="reference internal" href="#get-calendar-event-detail">获取日历事件详情</a></li>
+<li><a class="reference internal" href="#create-calendar-event">创建日历事件</a></li>
+<li><a class="reference internal" href="#update-calendar-event">修改日历事件</a></li>
+<li><a class="reference internal" href="#delete-calendar-event">删除日历事件</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_contacts.html"
+                          title="previous chapter">列出联系人</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_ai.html"
+                          title="next chapter">列出对话列表</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_ai.html" title="列出对话列表"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_contacts.html" title="列出联系人"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出日历</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

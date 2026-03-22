@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>列出对话列表 &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="list chat channel" href="api_chat.html" />
+    <link rel="prev" title="列出日历" href="api_calendar.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_chat.html" title="list chat channel"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_calendar.html" title="列出日历"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出对话列表</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="list-chat-thread">
+<span id="ai-list"></span><span id="api-ai-example"></span><span id="api-ai"></span><h1>列出对话列表<a class="headerlink" href="#list-chat-thread" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>列出对话列表</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>无或见实现</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/aichat/thread/list&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-chat-thread">
+<h1>创建对话<a class="headerlink" href="#create-chat-thread" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/thread/create</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>name (form, optional): 会话名称等，见实现</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/aichat/thread/create&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id1">
+<h1>列出对话列表<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>列出对话列表</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/aichat/thread/list&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="move-chat-thread">
+<h1>移动对话<a class="headerlink" href="#move-chat-thread" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/thread/move</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/aichat/thread/move&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="update-chat-thread">
+<h1>更新对话<a class="headerlink" href="#update-chat-thread" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/thread/update</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/aichat/thread/update&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-chat-thread">
+<h1>删除对话<a class="headerlink" href="#delete-chat-thread" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/thread/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/aichat/thread/delete&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-chat-content">
+<h1>列出对话消息<a class="headerlink" href="#list-chat-content" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/content/list/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/aichat/content/list/:id&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-chat-content">
+<h1>创建对话消息<a class="headerlink" href="#create-chat-content" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/content/create</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/aichat/content/create&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-chat-content">
+<h1>删除对话消息<a class="headerlink" href="#delete-chat-content" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/content/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/aichat/content/delete&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="chat-content-stream">
+<h1>对话消息流<a class="headerlink" href="#chat-content-stream" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/aichat/stream/:id</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/aichat/stream/:id&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">列出对话列表</a></li>
+<li><a class="reference internal" href="#create-chat-thread">创建对话</a></li>
+<li><a class="reference internal" href="#id1">列出对话列表</a></li>
+<li><a class="reference internal" href="#move-chat-thread">移动对话</a></li>
+<li><a class="reference internal" href="#update-chat-thread">更新对话</a></li>
+<li><a class="reference internal" href="#delete-chat-thread">删除对话</a></li>
+<li><a class="reference internal" href="#list-chat-content">列出对话消息</a></li>
+<li><a class="reference internal" href="#create-chat-content">创建对话消息</a></li>
+<li><a class="reference internal" href="#delete-chat-content">删除对话消息</a></li>
+<li><a class="reference internal" href="#chat-content-stream">对话消息流</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_calendar.html"
+                          title="previous chapter">列出日历</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_chat.html"
+                          title="next chapter">list chat channel</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_chat.html" title="list chat channel"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_calendar.html" title="列出日历"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出对话列表</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

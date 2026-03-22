@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>其他接口（代理、ACME、头像、安装） &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="SaaS 产品与计费回调 API" href="api_product.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_product.html" title="SaaS 产品与计费回调 API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">其他接口（代理、ACME、头像、安装）</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="acme">
+<span id="api-misc"></span><h1>其他接口（代理、ACME、头像、安装）<a class="headerlink" href="#acme" title="Link to this heading">¶</a></h1>
+<section id="proxysend">
+<span id="id1"></span><h2>proxysend<a class="headerlink" href="#proxysend" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/proxysend</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现（代理发送请求参数）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 代理结果</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="proxydomain-page">
+<span id="proxydomain"></span><h2>proxydomain page<a class="headerlink" href="#proxydomain-page" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/proxydomain</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 代理域名配置页 HTML</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="acme-create-certificate">
+<span id="acme-create"></span><h2>acme create certificate<a class="headerlink" href="#acme-create-certificate" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/acme/create</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现（域名等，用于申请证书）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 创建结果</p></li>
+</ul>
+</dd>
+</dl>
+<p>说明：ACME 证书申请，需配置 CertDir、AdminEmail 等。</p>
+</section>
+<section id="acme-renew-certificate">
+<span id="acme-renew"></span><h2>acme renew certificate<a class="headerlink" href="#acme-renew-certificate" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/acme/renew</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 续期结果</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="gravatar">
+<span id="id2"></span><h2>gravatar<a class="headerlink" href="#gravatar" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/gravatar/:id</p></li>
+<li><p>/defaultgravatar</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>id (path): 用户/标识 ID（/gravatar/:id）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 头像图片或默认头像重定向</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="install-script">
+<span id="install"></span><h2>install script<a class="headerlink" href="#install-script" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/install</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 返回 static/install/init.sh 文本内容（Content-Type: text/plain）</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="acme-http-01-challenge">
+<span id="wellknown-acme"></span><h2>ACME HTTP-01 challenge<a class="headerlink" href="#acme-http-01-challenge" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/.well-known/acme-challenge/:token</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>token (path): ACME 挑战 token</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 返回 key authorization 字符串</p></li>
+<li><p>404: token 无效</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">其他接口（代理、ACME、头像、安装）</a><ul>
+<li><a class="reference internal" href="#proxysend">proxysend</a></li>
+<li><a class="reference internal" href="#proxydomain-page">proxydomain page</a></li>
+<li><a class="reference internal" href="#acme-create-certificate">acme create certificate</a></li>
+<li><a class="reference internal" href="#acme-renew-certificate">acme renew certificate</a></li>
+<li><a class="reference internal" href="#gravatar">gravatar</a></li>
+<li><a class="reference internal" href="#install-script">install script</a></li>
+<li><a class="reference internal" href="#acme-http-01-challenge">ACME HTTP-01 challenge</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_product.html"
+                          title="previous chapter">SaaS 产品与计费回调 API</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_product.html" title="SaaS 产品与计费回调 API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">其他接口（代理、ACME、头像、安装）</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

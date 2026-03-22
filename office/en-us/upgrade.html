@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Upgrade &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="database table structure update" href="models.html" />
+    <link rel="prev" title="Firewall configuration" href="firewall.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="models.html" title="database table structure update"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="firewall.html" title="Firewall configuration"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Upgrade</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="upgrade">
+<span id="help-upgrade"></span><span id="id1"></span><h1>Upgrade<a class="headerlink" href="#upgrade" title="Link to this heading">¶</a></h1>
+<section id="read-update-release-notes">
+<h2>1. Read update release notes<a class="headerlink" href="#read-update-release-notes" title="Link to this heading">¶</a></h2>
+</section>
+<section id="backup">
+<h2>2. Backup<a class="headerlink" href="#backup" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>Backup your data, such as database, files, etc.</p>
+</div></blockquote>
+</section>
+<section id="update-database-tables">
+<h2>3. Update database tables<a class="headerlink" href="#update-database-tables" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>if need update database tables, update them before upgrade</p>
+</div></blockquote>
+</section>
+<section id="id2">
+<h2>4. Upgrade<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><div class="line-block">
+<div class="line"># update docker image</div>
+<div class="line">make update</div>
+<div class="line"># stop docker container</div>
+<div class="line">make down</div>
+<div class="line"># start docker container</div>
+<div class="line">make</div>
+</div>
+</div></blockquote>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Upgrade</a><ul>
+<li><a class="reference internal" href="#read-update-release-notes">1. Read update release notes</a></li>
+<li><a class="reference internal" href="#backup">2. Backup</a></li>
+<li><a class="reference internal" href="#update-database-tables">3. Update database tables</a></li>
+<li><a class="reference internal" href="#id2">4. Upgrade</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="firewall.html"
+                          title="previous chapter">Firewall configuration</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="models.html"
+                          title="next chapter">database table structure update</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="models.html" title="database table structure update"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="firewall.html" title="Firewall configuration"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Upgrade</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

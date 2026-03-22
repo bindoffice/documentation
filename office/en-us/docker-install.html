@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html lang="en-us" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>docker deploy &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=1a69d087"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Firewall configuration" href="firewall.html" />
+    <link rel="prev" title="Important changes" href="important.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="firewall.html" title="Firewall configuration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="important.html" title="Important changes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">docker deploy</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="docker-deploy">
+<span id="docker-install"></span><span id="help-docker-install"></span><h1>docker deploy<a class="headerlink" href="#docker-deploy" title="Link to this heading">¶</a></h1>
+<section id="about">
+<h2>About<a class="headerlink" href="#about" title="Link to this heading">¶</a></h2>
+<p>To be the best self-hosted work suite</p>
+</section>
+<section id="requirements">
+<h2>0. Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
+<p>Minimum 2G memory 2 cores CPU 64-bit Linux system</p>
+</section>
+<section id="configure-dns">
+<h2>1. configure DNS<a class="headerlink" href="#configure-dns" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Configure<span class="w"> </span>A<span class="w"> </span>record<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>domain<span class="w"> </span>name<span class="w"> </span>service<span class="w"> </span>provider<span class="w"> </span>or<span class="w"> </span>DNS<span class="w"> </span>resolution<span class="w"> </span>service<span class="w"> </span>provider
+</pre></div>
+</div>
+<p>For example:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>hostname</p></th>
+<th class="head"><p>record type</p></th>
+<th class="head"><p>record value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>work</p></td>
+<td><p>A</p></td>
+<td><p>x.x.x.x</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>The hostname can be any secondary domain name prefix, here use work</p></li>
+<li><p>example.com is your domain name</p></li>
+<li><p>x.x.x.x is the public IP address of the server</p></li>
+<li><p>The web access address is <a class="reference external" href="https://work.example.com">https://work.example.com</a></p></li>
+</ul>
+</section>
+<section id="install-docker-docker-compose-git">
+<h2>2. Install docker, docker-compose, git<a class="headerlink" href="#install-docker-docker-compose-git" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># If already installed, skip</span>
+
+mkdir<span class="w"> </span>pkgs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>pkgs
+wget<span class="w"> </span><span class="s1">&#39;https://download.docker.com/linux/static/stable/x86_64/docker-26.1.4.tgz&#39;</span>
+tar<span class="w"> </span>xf<span class="w"> </span>docker-26.1.4.tgz<span class="p">;</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>docker/*
+sudo<span class="w"> </span>cp<span class="w"> </span>docker/*<span class="w"> </span>/usr/local/bin/
+
+curl<span class="w"> </span>-SL<span class="w"> </span>https://github.com/docker/compose/releases/download/v2.27.1/docker-compose-linux-x86_64<span class="w"> </span>-o<span class="w"> </span>/usr/local/bin/docker-compose
+
+yum<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span><span class="c1"># centos</span>
+apt<span class="w"> </span>install<span class="w"> </span>git<span class="w">  </span><span class="c1"># ubuntu/debian</span>
+</pre></div>
+</div>
+</section>
+<section id="install">
+<h2>3. Install<a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># github 国外用户使用github更快</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/BindOffice/bind-docker.git
+
+<span class="c1"># gitee 国内用户使用gitee更快</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://gitee.com/hedwi/bind-docker.git
+
+<span class="nb">cd</span><span class="w"> </span>bind-docker/hedwi
+cp<span class="w"> </span>env.example<span class="w"> </span>.env
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Modify the .env configuration, modify all variables marked with ‘Need modify’</div>
+</div>
+<blockquote>
+<div><p>make</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line">After running, http 80 port can be accessed, should be able to access <a class="reference external" href="http://configured">http://configured</a> domain name</div>
+<div class="line">The service will automatically create an administrator account (for configuring the system, adding users, adding teams, etc.) and a normal user account <a class="reference external" href="mailto:admin&#37;&#52;&#48;your">admin<span>&#64;</span>your</a> domain name (for using the system service)</div>
+</div>
+<p>config example &lt;./env-example.html&gt;`_</p>
+</section>
+<section id="automatic-generation-of-free-ssl-certificates">
+<h2>4. Automatic generation of free SSL certificates<a class="headerlink" href="#automatic-generation-of-free-ssl-certificates" title="Link to this heading">¶</a></h2>
+<div class="line-block">
+<div class="line">The service has built-in Let’s Encrypt HTTP-01 verification service interface, running this command will request the /acme/create interface to create a certificate</div>
+<div class="line">After obtaining the certificate successfully, the certificate will be written to inbox/certs/cert.key inbox/certs/cert.crt</div>
+<div class="line">This command will use the generated free certificate to replace nginx/certs/cert.key nginx/certs/cert.crt</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>cert
+</pre></div>
+</div>
+</section>
+<section id="restart-the-service">
+<h2>5. Restart the service<a class="headerlink" href="#restart-the-service" title="Link to this heading">¶</a></h2>
+<div class="line-block">
+<div class="line">Stop all running docker containers</div>
+</div>
+<div class="line-block">
+<div class="line">Start docker containers</div>
+</div>
+</section>
+<section id="use-https-to-access-and-login">
+<h2>6. Use https to access and login<a class="headerlink" href="#use-https-to-access-and-login" title="Link to this heading">¶</a></h2>
+<p>Access <a class="reference external" href="https://work.example.com/login?admin=true">https://work.example.com/login?admin=true</a> (work.example.com is the domain name used), use the administrator account (the email and password configured) to log in
+Access <a class="reference external" href="https://work.example.com/hello">https://work.example.com/hello</a> page, continue to add users, teams, etc.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">docker deploy</a><ul>
+<li><a class="reference internal" href="#about">About</a></li>
+<li><a class="reference internal" href="#requirements">0. Requirements</a></li>
+<li><a class="reference internal" href="#configure-dns">1. configure DNS</a></li>
+<li><a class="reference internal" href="#install-docker-docker-compose-git">2. Install docker, docker-compose, git</a></li>
+<li><a class="reference internal" href="#install">3. Install</a></li>
+<li><a class="reference internal" href="#automatic-generation-of-free-ssl-certificates">4. Automatic generation of free SSL certificates</a></li>
+<li><a class="reference internal" href="#restart-the-service">5. Restart the service</a></li>
+<li><a class="reference internal" href="#use-https-to-access-and-login">6. Use https to access and login</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="important.html"
+                          title="previous chapter">Important changes</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="firewall.html"
+                          title="next chapter">Firewall configuration</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="firewall.html" title="Firewall configuration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="important.html" title="Important changes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">docker deploy</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:43.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

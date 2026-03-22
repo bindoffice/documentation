@@ -1,0 +1,633 @@
+.. _api_drive:
+
+.. _api-drive-example:
+
+
+.. _drive-project.List:
+
+list folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/dirs
+HTTP request method:
+    * GET
+request params:
+    * limit (query, optional): 条数限制
+    * offset (query, optional): 偏移
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/dirs"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "list": [] },
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+
+
+.. _drive.filelist:
+
+list file
+-------------------------------------------------------------
+interface address:
+    * /api/drive/filelist
+HTTP request method:
+    * GET
+request params:
+    * did (query, required): 父目录 ID，0 表示根目录
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/filelist?did=0"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "dirs": [], "files": [] },
+          "code": 0,
+          "message": "OK",
+          "ts": 1234567890
+        }
+
+.. _drive.sharedlist:
+
+list shared file
+-------------------------------------------------------------
+interface address:
+    * /api/drive/sharedlist
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/sharedlist"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.trashlist:
+
+list trash file
+-------------------------------------------------------------
+interface address:
+    * /api/drive/trash
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/trash"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.starredlist:
+
+list starred file
+-------------------------------------------------------------
+interface address:
+    * /api/drive/starredlist
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/starredlist"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.recentlist:
+
+list recent file
+-------------------------------------------------------------
+interface address:
+    * /api/drive/recentlist
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/recentlist"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.recentdocs:
+
+list recent office document
+-------------------------------------------------------------
+interface address:
+    * /api/drive/recentdocs
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/recentdocs"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.starreddocs:
+
+list starred office document
+-------------------------------------------------------------
+interface address:
+    * /api/drive/starreddocs
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/starreddocs"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.shareddocs:
+
+list shared office document
+-------------------------------------------------------------
+interface address:
+    * /api/drive/shareddocs
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/shareddocs"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.docslist:
+
+list office document
+-------------------------------------------------------------
+interface address:
+    * /api/drive/docslist
+HTTP request method:
+    * GET
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/docslist"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.touchlist:
+
+touch file
+-------------------------------------------------------------
+interface address:
+    * /api/drive/touch
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件 ID（更新最后打开时间）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/touch" -d "id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "data": { "id": "1" },
+          "message": "ok",
+          "ts": 1234567890
+        }
+
+.. _drive.upload:
+
+upload file
+-------------------------------------------------------------
+interface address:
+    * /api/drive/upload
+HTTP request method:
+    * POST
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/upload"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+.. _drive.create:
+
+create file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/create
+HTTP request method:
+    * POST
+request params:
+    * name (form, required): 名称
+    * parent_id (form, required): 父目录 ID
+    * type (form, required): 类型，file 或 folder
+    * url (form, optional): 链接（可选）
+    * size (form, optional): 大小（字节）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/create" -d "name=新文件夹&parent_id=0&type=folder"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+.. _drive.move:
+
+move file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/move
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件或目录 ID
+    * parent_id (form, required): 目标父目录 ID
+    * type (form, required): file 或 folder
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/move" -d "id=1&parent_id=2&type=file"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+
+.. _drive.delete:
+
+delete file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/delete
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件或目录 ID
+    * type (form, required): file 或 folder
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/delete" -d "id=1&type=file"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "OK",
+          "data": {}
+        }
+
+
+
+.. _drive.rename:
+
+rename file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/rename
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件或目录 ID
+    * name (form, required): 新名称
+    * type (form, required): file 或 folder
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/rename" -d "id=1&name=新名称&type=file"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "ok",
+          "data": { "id": "1", "name": "新名称" }
+        }
+
+
+
+.. _drive.downloadlink:
+
+get download link
+-------------------------------------------------------------
+interface address:
+    * /api/drive/downloadlink
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件 ID
+    * name (form, optional): 文件名
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/downloadlink" -d "id=1"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "data": { "url": "" },
+          "message": "OK"
+        }
+
+
+
+.. _drive.clone:
+
+clone file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/clone
+HTTP request method:
+    * POST
+request params:
+    * -
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/clone"
+    
+response example：
+
+    * JSON::
+
+        {
+        }
+
+
+
+.. _drive.starred:
+
+star file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/starred
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件或目录 ID
+    * starred (form, required): true/false
+    * type (form, required): file 或 folder
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/starred" -d "id=1&starred=true&type=file"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "ok",
+          "data": {}
+        }
+
+
+
+.. _drive.restore:
+
+restore file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/restore
+HTTP request method:
+    * POST
+request params:
+    * id (form, required): 文件或目录 ID
+    * type (form, required): file 或 folder
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/restore" -d "id=1&type=file"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "message": "ok",
+          "data": {}
+        }
+
+
+
+.. _drive.search:
+
+search file/folder
+-------------------------------------------------------------
+interface address:
+    * /api/drive/search
+HTTP request method:
+    * POST
+request params:
+    * 搜索关键词等（见实现）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/search" -d "keyword=test"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "data": {},
+          "message": "OK"
+        }
+
+
+.. _drive.channel:
+
+list drive channel files
+-------------------------------------------------------------
+interface address:
+    * /api/drive/channel
+HTTP request method:
+    * GET
+request params:
+    * did (query): 父目录 ID
+response code:
+    * common response
+
+example::
+
+    curl -X GET "$BASE_URL/api/drive/channel?did=0"
+    
+response example：
+
+    * JSON::
+
+        {
+          "data": { "list": [] },
+          "code": 0,
+          "message": "OK"
+        }
+
+
+.. _drive.sts:
+
+get STS token
+-------------------------------------------------------------
+interface address:
+    * /api/drive/sts
+HTTP request method:
+    * POST
+request params:
+    * 见实现（对象存储临时凭证）
+response code:
+    * common response
+
+example::
+
+    curl -X POST "$BASE_URL/api/drive/sts"
+    
+response example：
+
+    * JSON::
+
+        {
+          "code": 0,
+          "data": {},
+          "message": "OK"
+        }
+
+

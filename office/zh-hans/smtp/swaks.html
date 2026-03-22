@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SMTP发信-swaks测试 &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c21daf79" />
+    
+    <script src="../_static/documentation_options.js?v=6637e03b"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SMTP发信-swaks测试</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="smtp-swaks">
+<span id="help-smtp-swaks"></span><span id="id1"></span><h1>SMTP发信-swaks测试<a class="headerlink" href="#smtp-swaks" title="Link to this heading">¶</a></h1>
+<p>SMTP发信使用任意用户名和默认SMTP密码即可。</p>
+<p>SMTP服务器：smtp.hedwi.net  端口: 25 / 25000/ 465</p>
+推荐使用 <a target="_blank" href="https://www.mail-tester.com" ><img border="0" src="/_static/mail-tester_logo.svg" alt="mail-tester" style="width: 120px;" title="mailtester邮件测试"></a> 做测试<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./swaks<span class="w"> </span>--auth<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--server<span class="w"> </span>smtp.hedwi.net<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--auth<span class="w"> </span>PLAIN<span class="w">  </span><span class="se">\</span>
+<span class="w">    </span>--au<span class="w"> </span>username@example.com<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ap<span class="w"> </span>password<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--to<span class="w"> </span>to@example.com<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tls<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--h-Subject:<span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--body<span class="w"> </span><span class="s1">&#39;Testing some BindOffice awesomness!&#39;</span>
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">SMTP发信-swaks测试</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

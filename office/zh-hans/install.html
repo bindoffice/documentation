@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>安装 &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">安装</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="install">
+<span id="help-install"></span><span id="id1"></span><h1>安装<a class="headerlink" href="#install" title="Link to this heading">¶</a></h1>
+<section id="id2">
+<h2>环境要求<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<p>最低2G内存 2核CPU  linux 64位系统</p>
+</section>
+<section id="ssl">
+<h2>SSL证书<a class="headerlink" href="#ssl" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>lego获取免费泛域名证书</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="s1">&#39;https://github.com/go-acme/lego/releases/download/v4.4.0/lego_v4.4.0_linux_amd64.tar.gz&#39;</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">DNSPOD_API_KEY</span><span class="o">=</span><span class="s2">&quot;ID_xxxx,Token_xxxxxx&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DNSPOD_HTTP_TIMEOUT</span><span class="o">=</span><span class="s2">&quot;300&quot;</span>
+
+domain<span class="w"> </span>example.com
+lego<span class="w"> </span>--email<span class="o">=</span><span class="s2">&quot;xxx@xxx.com&quot;</span><span class="w"> </span>--domains<span class="o">=</span><span class="s2">&quot;example.com&quot;</span><span class="w"> </span>--domains<span class="o">=</span><span class="s2">&quot;*.example.com&quot;</span><span class="w"> </span>--accept-tos<span class="w"> </span>--path<span class="o">=</span>/tmp/lego/<span class="w"> </span>--dns<span class="o">=</span><span class="s2">&quot;dnspod&quot;</span><span class="w">  </span>--dns.resolvers<span class="o">=</span><span class="s2">&quot;8.8.8.8&quot;</span><span class="w"> </span>run
+
+lego<span class="w"> </span>--email<span class="o">=</span><span class="s2">&quot;xxx@xxx.com&quot;</span><span class="w"> </span>--domains<span class="o">=</span><span class="s2">&quot;example.com&quot;</span><span class="w"> </span>--domains<span class="o">=</span><span class="s2">&quot;*.example.com&quot;</span><span class="w"> </span>--accept-tos<span class="w"> </span>--path<span class="o">=</span>/tmp/lego<span class="w"> </span>--dns<span class="o">=</span><span class="s2">&quot;dnspod&quot;</span><span class="w"> </span>renew<span class="w"> </span>--reuse-key
+
+
+
+如果修改了HEDWI_ROOT需要对应替换掉supervisord.conf中配置的路径/data/www
+<span class="nb">export</span><span class="w"> </span><span class="nv">HEDWI_ROOT</span><span class="o">=</span>/data/www
+
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/bind-certs<span class="p">;</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HEDWI_ROOT</span><span class="p">;</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>bind-certs/example.com<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1"># example.com改为对应域名</span>
+cp<span class="w"> </span>fullchain.cer<span class="w"> </span>cert.pem<span class="w"> </span>bind-certs/example.com/cert.key<span class="p">;</span>
+cp<span class="w"> </span>example.com.key<span class="w"> </span>cert.pem<span class="w"> </span>bind-certs/example.com/cert.key<span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="mysql">
+<h2>mysql<a class="headerlink" href="#mysql" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><p>目前依赖mysql数据库，有计划支持其它SQL数据库</p>
+</div></blockquote>
+</section>
+<section id="s3-minio-consul-nats">
+<h2>s3 minio / consul / nats<a class="headerlink" href="#s3-minio-consul-nats" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>minio</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建安装目录</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/<span class="o">{</span>consul,nats,hedis,bind-smtp,bind-imap,bind-inbox,bind-hub,bind-filter,bind-task,bind-search<span class="o">}</span>/logs<span class="w"> </span><span class="p">;</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/minio<span class="w"> </span><span class="p">;</span>
+wget<span class="w"> </span>https://dl.min.io/server/minio/release/linux-amd64/minio<span class="w"> </span><span class="p">;</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/minio/minio<span class="w"> </span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>consul</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://releases.hashicorp.com/consul/1.10.1/consul_1.10.1_linux_amd64.zip<span class="w"> </span><span class="p">;</span>
+unzip<span class="w"> </span>consul_1.10.1_linux_amd64.zip<span class="w"> </span><span class="p">;</span>
+mv<span class="w"> </span>consul<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/consul/consul<span class="w"> </span><span class="p">;</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/consul/consul<span class="w"> </span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>nats</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="s1">&#39;https://github.com/nats-io/nats-streaming-server/releases/download/v0.22.1/nats-streaming-server-v0.22.1-linux-amd64.tar.gz&#39;</span><span class="p">;</span>
+tar<span class="w"> </span>xf<span class="w"> </span>nats-streaming-server-v0.22.1-linux-amd64.tar.gz<span class="w"> </span><span class="p">;</span>
+mv<span class="w"> </span>nats-streaming-server-v0.22.1-linux-amd64/nats-streaming-server<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/nats/nats<span class="p">;</span>
+wget<span class="w"> </span>https://download.hedwi.com/mail/nats.conf
+mv<span class="w"> </span>nats.conf<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/nats/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="bind-mail">
+<h2>bind-mail<a class="headerlink" href="#bind-mail" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>安装 supervisor &amp; unzip</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu/debian:
+<span class="w">    </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>unzip<span class="w"> </span><span class="p">;</span>
+centos:
+<span class="w">    </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>python34-pip.noarch<span class="w"> </span>unzip<span class="w"> </span><span class="p">;</span>
+
+pip3<span class="w"> </span>install<span class="w"> </span>supervisor<span class="w"> </span><span class="p">;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>bind-mail</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HEDWI_ROOT</span><span class="w"> </span><span class="p">;</span>
+wget<span class="w"> </span>https://download.hedwi.com/mail/linux/amd64.zip<span class="w"> </span><span class="p">;</span>
+unzip<span class="w"> </span>amd64.zip<span class="w"> </span><span class="p">;</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/amd64<span class="w"> </span><span class="p">;</span>
+ls<span class="w"> </span>*<span class="p">|</span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>cp<span class="w"> </span>-f<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/<span class="o">{}</span>/<span class="o">{}</span><span class="w"> </span><span class="p">;</span>
+<span class="c1">#增加可执行</span>
+ls<span class="w"> </span>*<span class="p">|</span>xargs<span class="w"> </span>-I<span class="w"> </span><span class="o">{}</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span><span class="nv">$HEDWI_ROOT</span>/<span class="o">{}</span>/<span class="o">{}</span><span class="w"> </span><span class="p">;</span>
+
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$HEDWI_ROOT</span><span class="w"> </span><span class="p">;</span>
+wget<span class="w"> </span>https://download.hedwi.com/mail/bind-mail_supervisord.conf<span class="w"> </span><span class="p">;</span>
+
+<span class="c1"># todo 在supervisord配置文件中配置用户名 密码</span>
+<span class="c1"># MINIO_ROOT_USER=&#39;user&#39;        #kv server user  minio user</span>
+<span class="c1"># HEDWI_OSS_ACCESS_KEY=&#39;user&#39;         #kv server user minio user</span>
+<span class="c1"># MINIO_ROOT_PASSWORD=&#39;password&#39;    #kv server password minio password</span>
+<span class="c1"># HEDWI_OSS_ACCESS_SECRET=&#39;password&#39;      #kv server password minio password</span>
+
+
+访问https://hedwi.com/license<span class="w"> </span>生成license<span class="w"> </span>（目前需要注册帐号生成license）
+10人免费<span class="w"> </span>生成后配置到supervisord.conf文件中<span class="w"> </span>HEDWI_LICENSE变量。
+
+supervisord<span class="w"> </span>-c<span class="w"> </span>bind-mail_supervisord.conf
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt>防火墙配置</dt><dd><p>对外开放25、465、993、443端口即可 本邮箱服务不需要nginx 如果使用nginx则需要自行修改配置文件中的端口</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>创建管理员帐号</dt><dd><p>访问https://mail.example.com (此处可以是根域名或者任意子域名，只要配置好DNS记录就可以)。注册管理员帐号 第一个帐号就是管理员帐号。使用管理员帐号添加域名，配置DNS记录。</p>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">安装</a><ul>
+<li><a class="reference internal" href="#id2">环境要求</a></li>
+<li><a class="reference internal" href="#ssl">SSL证书</a></li>
+<li><a class="reference internal" href="#mysql">mysql</a></li>
+<li><a class="reference internal" href="#s3-minio-consul-nats">s3 minio / consul / nats</a></li>
+<li><a class="reference internal" href="#bind-mail">bind-mail</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">安装</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+.. _api_member:
+
+成员管理 API
+==================================
+
+管理后台：按域名管理邮箱成员，需管理员会话。
+
+.. _member.create:
+
+create member
+-------------------------------------------------------------
+interface address:
+    * /member/:domain/create
+HTTP request method:
+    * POST
+request params:
+    * domain (path): 根域名
+    * user (form, required): 用户名（邮箱 @ 前部分），字母数字 1–64 位
+    * name (form, required): 显示名称
+    * password (form, required): 密码
+    * domain (form, required): 同上根域名
+    * backup_email (form, optional): 备用邮箱
+    * need_change_password (form, optional): 是否要求首次登录修改密码
+response code:
+    * 0: 成功
+    * 1: 参数错误、无权限
+    * 3: 域名未通过 DNS 或域名不匹配
+    * 5: 成员数量限制
+
+example::
+
+    curl -X POST "$BASE_URL/member/example.com/create" -d "user=admin&name=Admin&password=xxx&domain=example.com"
+
+response example：
+
+    * JSON::
+
+        { "id": "<session_id>", "code": 0, "message": "添加成员成功", "data": {} }
+
+
+.. _member.list:
+
+list members
+-------------------------------------------------------------
+interface address:
+    * /member/:domain/list
+HTTP request method:
+    * GET
+request params:
+    * domain (path): 域名
+response code:
+    * common response
+
+response example：
+
+    * JSON::
+
+        {
+          "data": {
+            "list": [
+              {
+                "id": "1",
+                "url": "/member/example.com/detail/1",
+                "name": "Admin",
+                "valid": "1",
+                "user": "admin",
+                "type": 0,
+                "password": "********"
+              }
+            ]
+          },
+          "code": 0,
+          "message": "OK"
+        }
+
+
+.. _member.info:
+
+member info
+-------------------------------------------------------------
+interface address:
+    * /member/:domain/info/:id
+HTTP request method:
+    * GET
+request params:
+    * domain (path): 域名
+    * id (path): 成员 ID
+response code:
+    * common response
+
+response example：
+
+    * JSON::
+
+        { "data": { "id": 1, "user": "admin", "name": "Admin", "domain": "example.com" }, "code": 0, "message": "OK" }
+
+
+.. _member.delete:
+
+delete member
+-------------------------------------------------------------
+interface address:
+    * /member/:domain/delete
+HTTP request method:
+    * POST
+request params:
+    * domain (path): 域名（页面上下文）
+    * id (form, required): 成员 ID
+response code:
+    * 0: 成功
+    * 1: 参数错误、无权限
+
+example::
+
+    curl -X POST "$BASE_URL/member/example.com/delete" -d "id=1"
+
+
+.. _member.resetpassword:
+
+reset member password
+-------------------------------------------------------------
+interface address:
+    * /member/:domain/resetpassword
+HTTP request method:
+    * POST
+request params:
+    * domain (path): 域名
+    * id (form, required): 成员 ID
+    * user (form, required): 成员用户名（邮箱 @ 前部分）
+    * password (form, required): 新密码
+response code:
+    * 0: 成功
+    * 1: 参数错误、用户不匹配等
+
+example::
+
+    curl -X POST "$BASE_URL/member/example.com/resetpassword" -d "id=1&user=admin&password=newpass"
+
+
+页面路由（非 JSON API）
+-------------------------------------------------------------
+    * GET /member - 成员管理首页
+    * GET /member/:domain - 某域名成员页
+    * GET /member/:domain/detail/:id - 成员详情页
+    * GET /member/:domain/delete/:id - 删除成员确认页

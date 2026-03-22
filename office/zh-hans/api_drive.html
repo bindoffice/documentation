@@ -1,0 +1,1051 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>列出文件夹 &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="获取文档详情" href="api_docs.html" />
+    <link rel="prev" title="列出看板项目" href="api_kanban.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_docs.html" title="获取文档详情"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_kanban.html" title="列出看板项目"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出文件夹</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="list-folder">
+<span id="drive-project-list"></span><span id="api-drive-example"></span><span id="api-drive"></span><h1>列出文件夹<a class="headerlink" href="#list-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/dirs</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>limit (query, optional): 条数限制</p></li>
+<li><p>offset (query, optional): 偏移</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/dirs&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ts&quot;</span><span class="p">:</span> <span class="mi">1234567890</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-file">
+<span id="drive-filelist"></span><h1>列出文件<a class="headerlink" href="#list-file" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/filelist</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>did (query, required): 父目录 ID，0 表示根目录</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/filelist?did=0&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;dirs&quot;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;files&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ts&quot;</span><span class="p">:</span> <span class="mi">1234567890</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-shared-file">
+<span id="drive-sharedlist"></span><h1>列出共享文件<a class="headerlink" href="#list-shared-file" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/sharedlist</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/sharedlist&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-trash-file">
+<span id="drive-trashlist"></span><h1>列出回收站文件<a class="headerlink" href="#list-trash-file" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/trash</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/trash&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-starred-file">
+<span id="drive-starredlist"></span><h1>列出星标文件<a class="headerlink" href="#list-starred-file" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/starredlist</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/starredlist&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-recent-file">
+<span id="drive-recentlist"></span><h1>列出最近访问文件<a class="headerlink" href="#list-recent-file" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/recentlist</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/recentlist&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-recent-office-document">
+<span id="drive-recentdocs"></span><h1>列出最近访问Office文档<a class="headerlink" href="#list-recent-office-document" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/recentdocs</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/recentdocs&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-starred-office-document">
+<span id="drive-starreddocs"></span><h1>列出星标Office文档<a class="headerlink" href="#list-starred-office-document" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/starreddocs</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/starreddocs&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-shared-office-document">
+<span id="drive-shareddocs"></span><h1>列出共享Office文档<a class="headerlink" href="#list-shared-office-document" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/shareddocs</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/shareddocs&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-office-document">
+<span id="drive-docslist"></span><h1>列出Office文档<a class="headerlink" href="#list-office-document" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/docslist</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/docslist&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="touch-file">
+<span id="drive-touchlist"></span><h1>访问文件<a class="headerlink" href="#touch-file" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/touch</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 文件 ID（更新最后打开时间）</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/touch&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span> <span class="p">},</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;ts&quot;</span><span class="p">:</span> <span class="mi">1234567890</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="upload-file">
+<span id="drive-upload"></span><h1>上传文件<a class="headerlink" href="#upload-file" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/upload</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/upload&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-file-folder">
+<span id="drive-create"></span><h1>创建文件/文件夹<a class="headerlink" href="#create-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/create</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>name (form, required): 名称</p></li>
+<li><p>parent_id (form, required): 父目录 ID</p></li>
+<li><p>type (form, required): 类型，file 或 folder</p></li>
+<li><p>url (form, optional): 链接（可选）</p></li>
+<li><p>size (form, optional): 大小（字节）</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/create&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;name=新文件夹&amp;parent_id=0&amp;type=folder&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="move-file-folder">
+<span id="drive-move"></span><h1>移动文件/文件夹<a class="headerlink" href="#move-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/move</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 文件或目录 ID</p></li>
+<li><p>parent_id (form, required): 目标父目录 ID</p></li>
+<li><p>type (form, required): file 或 folder</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/move&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;parent_id=2&amp;type=file&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="delete-file-folder">
+<span id="drive-delete"></span><h1>删除文件/文件夹<a class="headerlink" href="#delete-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/delete</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 文件或目录 ID</p></li>
+<li><p>type (form, required): file 或 folder</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/delete&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;type=file&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="rename-file-folder">
+<span id="drive-rename"></span><h1>重命名文件/文件夹<a class="headerlink" href="#rename-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/rename</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 文件或目录 ID</p></li>
+<li><p>name (form, required): 新名称</p></li>
+<li><p>type (form, required): file 或 folder</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/rename&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;name=新名称&amp;type=file&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;新名称&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-download-link">
+<span id="drive-downloadlink"></span><h1>获取下载链接<a class="headerlink" href="#get-download-link" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/downloadlink</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 文件 ID</p></li>
+<li><p>name (form, optional): 文件名</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/downloadlink&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span> <span class="p">},</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="clone-file-folder">
+<span id="drive-clone"></span><h1>克隆文件/文件夹<a class="headerlink" href="#clone-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/clone</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/clone&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="star-file-folder">
+<span id="drive-starred"></span><h1>星标文件/文件夹<a class="headerlink" href="#star-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/starred</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 文件或目录 ID</p></li>
+<li><p>starred (form, required): true/false</p></li>
+<li><p>type (form, required): file 或 folder</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/starred&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;starred=true&amp;type=file&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="restore-file-folder">
+<span id="drive-restore"></span><h1>恢复文件/文件夹<a class="headerlink" href="#restore-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/restore</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>id (form, required): 文件或目录 ID</p></li>
+<li><p>type (form, required): file 或 folder</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/restore&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;id=1&amp;type=file&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="search-file-folder">
+<span id="drive-search"></span><h1>搜索文件/文件夹<a class="headerlink" href="#search-file-folder" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/search</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>搜索关键词等（见实现）</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/search&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;keyword=test&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="list-drive-channel-files">
+<span id="drive-channel"></span><h1>list drive channel files<a class="headerlink" href="#list-drive-channel-files" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/channel</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>did (query): 父目录 ID</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="s2">&quot;$BASE_URL/api/drive/channel?did=0&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;list&quot;</span><span class="p">:</span> <span class="p">[]</span> <span class="p">},</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="get-sts-token">
+<span id="drive-sts"></span><h1>get STS token<a class="headerlink" href="#get-sts-token" title="Link to this heading">¶</a></h1>
+<dl class="simple">
+<dt>接口地址：</dt><dd><ul class="simple">
+<li><p>/api/drive/sts</p></li>
+</ul>
+</dd>
+<dt>HTTP请求方式</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>请求参数</dt><dd><ul class="simple">
+<li><p>见实现（对象存储临时凭证）</p></li>
+</ul>
+</dd>
+<dt>响应代码</dt><dd><ul class="simple">
+<li><p>共通响应</p></li>
+</ul>
+</dd>
+</dl>
+<p>示例:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="s2">&quot;$BASE_URL/api/drive/sts&quot;</span>
+</pre></div>
+</div>
+<p>响应示例：</p>
+<blockquote>
+<div><ul>
+<li><p>JSON:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;code&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">{},</span>
+  <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;OK&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">列出文件夹</a></li>
+<li><a class="reference internal" href="#list-file">列出文件</a></li>
+<li><a class="reference internal" href="#list-shared-file">列出共享文件</a></li>
+<li><a class="reference internal" href="#list-trash-file">列出回收站文件</a></li>
+<li><a class="reference internal" href="#list-starred-file">列出星标文件</a></li>
+<li><a class="reference internal" href="#list-recent-file">列出最近访问文件</a></li>
+<li><a class="reference internal" href="#list-recent-office-document">列出最近访问Office文档</a></li>
+<li><a class="reference internal" href="#list-starred-office-document">列出星标Office文档</a></li>
+<li><a class="reference internal" href="#list-shared-office-document">列出共享Office文档</a></li>
+<li><a class="reference internal" href="#list-office-document">列出Office文档</a></li>
+<li><a class="reference internal" href="#touch-file">访问文件</a></li>
+<li><a class="reference internal" href="#upload-file">上传文件</a></li>
+<li><a class="reference internal" href="#create-file-folder">创建文件/文件夹</a></li>
+<li><a class="reference internal" href="#move-file-folder">移动文件/文件夹</a></li>
+<li><a class="reference internal" href="#delete-file-folder">删除文件/文件夹</a></li>
+<li><a class="reference internal" href="#rename-file-folder">重命名文件/文件夹</a></li>
+<li><a class="reference internal" href="#get-download-link">获取下载链接</a></li>
+<li><a class="reference internal" href="#clone-file-folder">克隆文件/文件夹</a></li>
+<li><a class="reference internal" href="#star-file-folder">星标文件/文件夹</a></li>
+<li><a class="reference internal" href="#restore-file-folder">恢复文件/文件夹</a></li>
+<li><a class="reference internal" href="#search-file-folder">搜索文件/文件夹</a></li>
+<li><a class="reference internal" href="#list-drive-channel-files">list drive channel files</a></li>
+<li><a class="reference internal" href="#get-sts-token">get STS token</a></li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_kanban.html"
+                          title="previous chapter">列出看板项目</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_docs.html"
+                          title="next chapter">获取文档详情</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_docs.html" title="获取文档详情"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_kanban.html" title="列出看板项目"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">列出文件夹</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

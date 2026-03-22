@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-hans" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>登录、注册与找回密码 API &#8212; Hedwi work suite  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
+    
+    <script src="_static/documentation_options.js?v=6637e03b"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="SaaS 产品与计费回调 API" href="api_product.html" />
+    <link rel="prev" title="支付与结账 API" href="api_checkout.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_product.html" title="SaaS 产品与计费回调 API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_checkout.html" title="支付与结账 API"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" accesskey="U">API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">登录、注册与找回密码 API</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="api">
+<span id="api-auth"></span><h1>登录、注册与找回密码 API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h1>
+<p>认证相关：登录、注册、找回密码、验证码等。</p>
+<section id="login-page">
+<span id="id1"></span><h2>login page<a class="headerlink" href="#login-page" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/login</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 登录页 HTML</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="login">
+<span id="id2"></span><h2>login<a class="headerlink" href="#login" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/login</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现：通常为 email、password 等表单字段</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 成功则写 session 并重定向/返回；失败返回错误信息</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="admin-login">
+<span id="adminlogin"></span><h2>admin login<a class="headerlink" href="#admin-login" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/adminlogin</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>同登录（管理员账号）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 成功则写管理员 session</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="signup-page">
+<span id="id3"></span><h2>signup page<a class="headerlink" href="#signup-page" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/signup</p></li>
+<li><p>/signupemail</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>admin (query, optional): true 表示管理员注册入口</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 注册页 HTML</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="signup">
+<span id="id4"></span><h2>signup<a class="headerlink" href="#signup" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/signup</p></li>
+<li><p>/adminsignup</p></li>
+<li><p>/normalsignup</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现：通常含 email、password、name、backupemail、admin、company、code（验证码）、geetest_challenge/validate/seccode 等</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 成功或错误信息</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="get-mail-verify-code">
+<span id="getmailcode"></span><h2>get mail verify code<a class="headerlink" href="#get-mail-verify-code" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/getmailcode</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现：邮箱等</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 发送验证码结果</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="forgot-password-page">
+<span id="forgotpassword-page"></span><h2>forgot password page<a class="headerlink" href="#forgot-password-page" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/forgotpassword</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 找回密码页 HTML</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="get-personal-forgot-password-mail-code">
+<span id="forgotpassword-personal"></span><h2>get personal forgot password mail code<a class="headerlink" href="#get-personal-forgot-password-mail-code" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/forgotpassword/personal</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现：邮箱等</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 发送找回密码邮件/验证码</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="get-ent-admin-forgot-password-mail-code">
+<span id="forgotpassword-entadmin"></span><h2>get ent admin forgot password mail code<a class="headerlink" href="#get-ent-admin-forgot-password-mail-code" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/forgotpassword/entadmin</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 发送企业管理员找回密码邮件</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="reset-personal-password">
+<span id="resetpassword-personal"></span><h2>reset personal password<a class="headerlink" href="#reset-personal-password" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/resetpassword/personal</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现：验证码、新密码等</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 重置结果</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="reset-ent-admin-password">
+<span id="resetpassword-entadmin"></span><h2>reset ent admin password<a class="headerlink" href="#reset-ent-admin-password" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/resetpassword/entadmin</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 重置结果</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="logout">
+<span id="id5"></span><h2>logout<a class="headerlink" href="#logout" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/logout</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 清除 session 并重定向/返回</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="change-password-api">
+<span id="changepassword-api"></span><h2>change password (API)<a class="headerlink" href="#change-password-api" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/api/changepassword</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>POST</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><p>见实现（当前密码、新密码等）</p></li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>common response</p></li>
+</ul>
+</dd>
+</dl>
+<p>说明：已登录用户修改密码，详见 <a class="reference internal" href="api_user_setting.html#api-user-setting"><span class="std std-ref">用户与设置相关 API</span></a> 中 <a class="reference internal" href="api_user_setting.html#changepassword"><span class="std std-ref">change password (api)</span></a>。</p>
+</section>
+<section id="geetest-preprocess-captcha">
+<span id="gt-preprocess"></span><h2>geetest preprocess (captcha)<a class="headerlink" href="#geetest-preprocess-captcha" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>interface address:</dt><dd><ul class="simple">
+<li><p>/gt_preprocess</p></li>
+</ul>
+</dd>
+<dt>HTTP request method:</dt><dd><ul class="simple">
+<li><p>GET</p></li>
+</ul>
+</dd>
+<dt>request params:</dt><dd><ul class="simple">
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>response code:</dt><dd><ul class="simple">
+<li><p>200: 极验预处理/挑战数据</p></li>
+</ul>
+</dd>
+</dl>
+<p>说明：注册等场景的人机验证预处理。</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">登录、注册与找回密码 API</a><ul>
+<li><a class="reference internal" href="#login-page">login page</a></li>
+<li><a class="reference internal" href="#login">login</a></li>
+<li><a class="reference internal" href="#admin-login">admin login</a></li>
+<li><a class="reference internal" href="#signup-page">signup page</a></li>
+<li><a class="reference internal" href="#signup">signup</a></li>
+<li><a class="reference internal" href="#get-mail-verify-code">get mail verify code</a></li>
+<li><a class="reference internal" href="#forgot-password-page">forgot password page</a></li>
+<li><a class="reference internal" href="#get-personal-forgot-password-mail-code">get personal forgot password mail code</a></li>
+<li><a class="reference internal" href="#get-ent-admin-forgot-password-mail-code">get ent admin forgot password mail code</a></li>
+<li><a class="reference internal" href="#reset-personal-password">reset personal password</a></li>
+<li><a class="reference internal" href="#reset-ent-admin-password">reset ent admin password</a></li>
+<li><a class="reference internal" href="#logout">logout</a></li>
+<li><a class="reference internal" href="#change-password-api">change password (API)</a></li>
+<li><a class="reference internal" href="#geetest-preprocess-captcha">geetest preprocess (captcha)</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="api_checkout.html"
+                          title="previous chapter">支付与结账 API</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="api_product.html"
+                          title="next chapter">SaaS 产品与计费回调 API</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_product.html" title="SaaS 产品与计费回调 API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_checkout.html" title="支付与结账 API"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="api_index.html" >API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">登录、注册与找回密码 API</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2019-2024, Hedwi.
+      Last updated on 2026-03-22 14:58:42.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    </div>
+  </body>
+</html>

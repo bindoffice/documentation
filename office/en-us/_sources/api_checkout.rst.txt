@@ -1,0 +1,96 @@
+.. _api_checkout:
+
+支付与结账 API
+==================================
+
+结账页、支付宝/ PayPal 下单与回调。
+
+.. _checkout.home:
+
+checkout page
+-------------------------------------------------------------
+interface address:
+    * /checkout
+HTTP request method:
+    * GET
+request params:
+    * plan (query, optional): 套餐，如 free / standard / pro / ultra
+response code:
+    * 200: 返回结账页面 HTML
+
+说明：根据 plan 和语言展示对应价格（如 zh 为人民币，en 为美元）。
+
+
+.. _checkout.alipayorders:
+
+alipay create order (redirect)
+-------------------------------------------------------------
+interface address:
+    * /checkout/alipayorders
+HTTP request method:
+    * GET
+request params:
+    * amount (query, required): 支付金额，如 69.99
+response code:
+    * 302: 重定向到支付宝支付页
+
+说明：创建支付宝订单并跳转支付，需登录。支付成功后会重定向到 /pay/back（或配置的回调地址）。
+
+
+.. _checkout.alipayback:
+
+alipay return (redirect)
+-------------------------------------------------------------
+interface address:
+    * /checkout/alipayback
+HTTP request method:
+    * GET
+request params:
+    * 支付宝同步回调 query 参数
+response code:
+    * 302: 重定向到 /billing
+
+说明：用户支付完成后支付宝同步跳转至该地址，服务端再重定向到 /billing。验签与订单更新见实现。
+
+
+.. _checkout.paypalorders:
+
+paypal create order
+-------------------------------------------------------------
+interface address:
+    * /checkout/paypalorders
+HTTP request method:
+    * POST
+request params:
+    * Body JSON::
+
+        {
+          "cart": [
+            { "plan": "pro" | "ultra" | "custom", "quantity": "1" }
+          ]
+        }
+
+response code:
+    * 200: 返回 PayPal 订单对象（含 id、links 等）
+
+response example：
+
+    * JSON: PayPal Create Order 响应（含 id、status、links 等）
+
+
+.. _checkout.paypalcapture:
+
+paypal capture order
+-------------------------------------------------------------
+interface address:
+    * /checkout/paypalorders/:id/capture
+HTTP request method:
+    * POST
+request params:
+    * id (path): PayPal 订单 ID
+response code:
+    * 200: 返回 PayPal 捕获结果
+
+response example：
+
+    * JSON: PayPal Capture Order 响应
