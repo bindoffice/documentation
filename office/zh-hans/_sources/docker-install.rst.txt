@@ -15,7 +15,7 @@ To be the best self-hosted work suite
 
 0. Requirements
 =====================
-Minimum 2G memory 2 cores CPU 64-bit Linux system
+Minimum 4G memory 2 cores CPU 64-bit Linux system
 
 1. configure DNS
 ===============================================
@@ -64,12 +64,12 @@ For example:
 
 
   # github 国外用户使用github更快
-  git clone https://github.com/BindOffice/bind-docker.git
+  git clone https://github.com/bindoffice/bind-docker.git
 
   # gitee 国内用户使用gitee更快
-  git clone https://gitee.com/hedwi/bind-docker.git
+  git clone https://gitee.com/bindoffice/bind-docker.git
 
-  cd bind-docker/hedwi
+  cd bind-docker/office
   cp env.example .env
 
 | Modify the .env configuration, modify all variables marked with 'Need modify'

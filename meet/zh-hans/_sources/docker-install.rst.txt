@@ -63,10 +63,10 @@ For example
 .. code-block:: bash
 
   # github 国外用户使用github更快
-  git clone https://github.com/BindOffice/bind-docker.git
+  git clone https://github.com/bindoffice/bind-docker.git
 
   # gitee 国内用户使用gitee更快
-  git clone https://gitee.com/hedwi/bind-docker.git
+  git clone https://gitee.com/bindoffice/bind-docker.git
 
   cd bind-docker/meet
   cp env.example .env
