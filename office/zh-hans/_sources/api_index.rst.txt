@@ -186,7 +186,7 @@ checkout & payment
 
 
 auth (login / signup / forgot password)
-------------------
+--------------------------------------------
 
 .. toctree::
    :maxdepth: 2
@@ -195,7 +195,7 @@ auth (login / signup / forgot password)
 
 
 product (SaaS callback)
-------------------
+------------------------------------
 
 .. toctree::
    :maxdepth: 2
@@ -204,7 +204,7 @@ product (SaaS callback)
 
 
 other (proxysend / acme / gravatar / install)
-------------------
+-------------------------------------------------
 
 .. toctree::
    :maxdepth: 2

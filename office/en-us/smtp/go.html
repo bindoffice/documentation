@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Go smtp 发邮件 &#8212; Hedwi work suite  documentation</title>
+    <title>Go smtp 发邮件 &#8212; BindOffice  documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=c21daf79" />
     
@@ -28,7 +28,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Go smtp 发邮件</a></li> 
       </ul>
     </div>  
@@ -40,25 +40,25 @@
             
   <section id="go-smtp">
 <span id="smtp-python"></span><span id="help-smtp-python"></span><h1>Go smtp 发邮件<a class="headerlink" href="#go-smtp" title="Link to this heading">¶</a></h1>
-<div class="highlight-go notranslate"><div class="highlight"><pre><span></span><span class="err">#</span><span class="p">!</span><span class="o">/</span><span class="nx">usr</span><span class="o">/</span><span class="nx">bin</span><span class="o">/</span><span class="nx">env</span><span class="w"> </span><span class="nx">python</span>
-<span class="err">#</span><span class="nx">coding</span><span class="p">=</span><span class="nx">utf</span><span class="o">-</span><span class="mi">8</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1">#coding=utf-8</span>
 
-<span class="kn">import</span><span class="w"> </span><span class="nx">yagmail</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yagmail</span>
 
-<span class="err">#</span><span class="nx">建议</span><span class="p">:</span><span class="w"> </span><span class="nx">同类型邮件的发信用户名最好固定</span><span class="err">，</span><span class="nx">可以减少邮件被当做垃圾邮件的几率</span>
+<span class="c1">#建议: 同类型邮件的发信用户名最好固定，可以减少邮件被当做垃圾邮件的几率</span>
 
-<span class="nx">user</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;support@notice.domain.com&quot;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nx">任意用户名</span><span class="err">@</span><span class="nx">域名</span><span class="w"> </span><span class="nx">推荐在hedwi配置子域名</span>
-<span class="nx">password</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;*******************&quot;</span><span class="w"> </span><span class="err">#</span><span class="w">  </span><span class="nx">SMTP</span><span class="w"> </span><span class="nx">默认密码</span><span class="w">  </span><span class="nx">参见域名详情页SMTP部分</span>
-<span class="nx">smtp_server</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;smtp.hedwi.net&quot;</span>
-<span class="nx">port</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;465&quot;</span>
-<span class="nx">yag</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">yagmail</span><span class="p">.</span><span class="nx">SMTP</span><span class="p">(</span><span class="nx">user</span><span class="p">=</span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">password</span><span class="p">=</span><span class="nx">password</span><span class="p">,</span><span class="w"> </span><span class="nx">host</span><span class="p">=</span><span class="nx">smtp_server</span><span class="p">,</span><span class="w"> </span><span class="nx">port</span><span class="p">=</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="nx">smtp_ssl</span><span class="p">=</span><span class="nx">True</span><span class="p">)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;support@notice.domain.com&quot;</span>  <span class="c1"># 任意用户名@域名 推荐在hedwi配置子域名</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;*******************&quot;</span> <span class="c1">#  SMTP 默认密码  参见域名详情页SMTP部分</span>
+<span class="n">smtp_server</span> <span class="o">=</span> <span class="s2">&quot;smtp.hedwi.net&quot;</span>
+<span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;465&quot;</span>
+<span class="n">yag</span> <span class="o">=</span> <span class="n">yagmail</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">smtp_server</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">port</span><span class="p">,</span> <span class="n">smtp_ssl</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="nx">to</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;user@example.com&quot;</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">收件人</span>
-<span class="nx">subject</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">smtp</span><span class="w"> </span><span class="nx">测试</span><span class="err">&#39;</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nx">邮件主题</span>
-<span class="nx">contents</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="err">&#39;</span><span class="nx">This</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">the</span><span class="w"> </span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="nx">and</span><span class="w"> </span><span class="nx">here</span><span class="w"> </span><span class="nx">is</span><span class="w"> </span><span class="nx">just</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="err">&#39;</span><span class="p">]</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nx">邮件内容</span>
-<span class="nx">yag</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">subject</span><span class="p">,</span><span class="w"> </span><span class="nx">contents</span><span class="p">,</span><span class="w"> </span><span class="nx">group_messages</span><span class="p">=</span><span class="nx">False</span><span class="p">)</span>
+<span class="n">to</span> <span class="o">=</span> <span class="s2">&quot;user@example.com&quot;</span> <span class="c1"># 收件人</span>
+<span class="n">subject</span> <span class="o">=</span> <span class="s1">&#39;smtp 测试&#39;</span>  <span class="c1"># 邮件主题</span>
+<span class="n">contents</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;This is the body, and here is just text &#39;</span><span class="p">]</span> <span class="c1"># 邮件内容</span>
+<span class="n">yag</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">to</span><span class="p">,</span> <span class="n">subject</span><span class="p">,</span> <span class="n">contents</span><span class="p">,</span> <span class="n">group_messages</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="err">#</span>
+<span class="c1">#</span>
 </pre></div>
 </div>
 <p>当然也可以使用标准库发信</p>
@@ -98,7 +98,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
-              <img class="logo" src="../_static/logo.png" alt="Logo of Hedwi work suite"/>
+              <img class="logo" src="../_static/logo.png" alt="Logo of BindOffice"/>
             </a></p>
 <search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -120,13 +120,13 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Go smtp 发邮件</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2019-2024, Hedwi.
-      Last updated on 2026-03-22 22:26:14.
+    &#169; Copyright 2019-2026, Geci, Inc.
+      Last updated on 2026-03-31 17:38:19.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>

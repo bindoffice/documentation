@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>docker deploy &#8212; Hedwi work suite  documentation</title>
+    <title>docker deploy &#8212; BindOffice  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
     
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="important.html" title="Important changes"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">docker deploy</a></li> 
       </ul>
     </div>  
@@ -50,11 +50,11 @@
 <span id="docker-install"></span><span id="help-docker-install"></span><h1>docker deploy<a class="headerlink" href="#docker-deploy" title="Link to this heading">¶</a></h1>
 <section id="about">
 <h2>About<a class="headerlink" href="#about" title="Link to this heading">¶</a></h2>
-<p>To be the best self-hosted work suite</p>
+<p>To be the best self-hosted office suite and google workspace alternative.</p>
 </section>
 <section id="requirements">
 <h2>0. Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
-<p>Minimum 4G memory 2 cores CPU 64-bit Linux system</p>
+<p>Minimum 4G memory 2 cores CPU linux 64-bit operating system</p>
 </section>
 <section id="configure-dns">
 <h2>1. configure DNS<a class="headerlink" href="#configure-dns" title="Link to this heading">¶</a></h2>
@@ -120,11 +120,17 @@ cp<span class="w"> </span>env.example<span class="w"> </span>.env
 <div class="line-block">
 <div class="line">Modify the .env configuration, modify all variables marked with ‘Need modify’</div>
 </div>
-<blockquote>
-<div><p>make</p>
-</div></blockquote>
 <div class="line-block">
-<div class="line">After running, http 80 port can be accessed, should be able to access <a class="reference external" href="http://configured">http://configured</a> domain name</div>
+<div class="line"># Generate a self-signed SSL certificate and will be replaced by the free certificate later</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>openssl
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">After running, http 80 port can be accessed, should be able to access <a class="reference external" href="http://work.example.com(work.example.com">http://work.example.com(work.example.com</a> is the domain name used)</div>
 <div class="line">The service will automatically create an administrator account (for configuring the system, adding users, adding teams, etc.) and a normal user account <a class="reference external" href="mailto:admin&#37;&#52;&#48;your">admin<span>&#64;</span>your</a> domain name (for using the system service)</div>
 </div>
 <p>config example &lt;./env-example.html&gt;`_</p>
@@ -145,8 +151,14 @@ cp<span class="w"> </span>env.example<span class="w"> </span>.env
 <div class="line-block">
 <div class="line">Stop all running docker containers</div>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>down
+</pre></div>
+</div>
 <div class="line-block">
 <div class="line">Start docker containers</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
 </div>
 </section>
 <section id="use-https-to-access-and-login">
@@ -164,7 +176,7 @@ Access <a class="reference external" href="https://work.example.com/hello">https
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+              <img class="logo" src="_static/logo.png" alt="Logo of BindOffice"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -219,13 +231,13 @@ Access <a class="reference external" href="https://work.example.com/hello">https
         <li class="right" >
           <a href="important.html" title="Important changes"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">docker deploy</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2019-2024, Hedwi.
-      Last updated on 2026-03-22 22:26:14.
+    &#169; Copyright 2019-2026, Geci, Inc.
+      Last updated on 2026-03-31 17:38:19.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>

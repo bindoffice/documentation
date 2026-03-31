@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>env config content &#8212; Hedwi work suite  documentation</title>
+    <title>env config content &#8212; BindOffice  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
     
@@ -28,7 +28,7 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">env config content</a></li> 
       </ul>
     </div>  
@@ -51,14 +51,15 @@
 <span class="nv">MINIO_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:9000&quot;</span><span class="w">                             </span><span class="c1">#   minio 监听地址</span>
 <span class="nv">MINIO_USESSL</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="w">                                    </span><span class="c1">#   minio 是否使用https</span>
 <span class="nv">MINIO_WEB_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:9001&quot;</span><span class="w">                         </span><span class="c1">#   minio web界面监听地址</span>
-<span class="nv">HEDWI_LICENSE</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w">                                        </span><span class="c1"># * 需要修改  hedwi证书  在网站 https://hedwi.com/signup 注册管理员账号 然后在 https://hedwi.com/license 生成</span>
+<span class="nv">LICENSE</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w">                                              </span><span class="c1"># * 需要修改  bindoffice证书  在网站 https://bindoffice.com/signup 注册管理员账号 然后在 https://bindoffice.com/license 生成</span>
 <span class="nv">PUBLIC_DRIVE_PREFIX</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w">                                  </span><span class="c1">#   minio访问前缀 与nginx配置对应 默认不需要填写</span>
+<span class="nv">CERT_DIR</span><span class="o">=</span><span class="s2">&quot;/tmp/bind_certs&quot;</span><span class="w">                              </span><span class="c1">#   证书存放目录 默认不需要修改</span>
+<span class="nv">DRIVE_BUCKET</span><span class="o">=</span><span class="s2">&quot;mails&quot;</span><span class="w">                                    </span><span class="c1">#   云盘 minio桶名称</span>
+<span class="nv">MAIL_BUCKET</span><span class="o">=</span><span class="s2">&quot;drives&quot;</span><span class="w">                                    </span><span class="c1">#   邮件 minio桶名称</span>
 <span class="nv">CRDB_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:26257&quot;</span><span class="w">                             </span><span class="c1">#   cockroachdb 监听地址</span>
 <span class="nv">CRDB_WEB_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:42080&quot;</span><span class="w">                         </span><span class="c1">#   cockroachdb web 监听地址</span>
 <span class="nv">DB_NAME</span><span class="o">=</span><span class="s2">&quot;hedwi_selfhost&quot;</span><span class="w">                                </span><span class="c1">#   数据库名称</span>
 <span class="nv">OFFICE_API_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:42201&quot;</span><span class="w">                       </span><span class="c1">#   office api服务监听地址</span>
-<span class="nv">CONSUL_IP</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w">                            </span><span class="c1">#   consul 监听IP</span>
-<span class="nv">CONSUL_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:8500&quot;</span><span class="w">                            </span><span class="c1">#   consul 监听地址</span>
 <span class="nv">REDIS_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:6379&quot;</span><span class="w">                             </span><span class="c1">#   redis 地址</span>
 <span class="nv">REDIS_USER</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w">                                           </span><span class="c1">#   redis默认监听127.0.0.1 没有密码</span>
 <span class="nv">REDIS_PASSWORD</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w">                                       </span><span class="c1">#   redis默认监听127.0.0.1 没有密码</span>
@@ -68,9 +69,11 @@
 <span class="nv">SEARCH_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:41701&quot;</span><span class="w">                           </span><span class="c1">#   search 搜索服务监听地址</span>
 <span class="nv">FILTER_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:41003&quot;</span><span class="w">                           </span><span class="c1">#   邮件过滤服务监听地址</span>
 <span class="nv">NATS_URL</span><span class="o">=</span><span class="s2">&quot;nats://127.0.0.1:42422&quot;</span><span class="w">                       </span><span class="c1">#   nats 消息队列监听地址</span>
+<span class="nv">NATS_CLUSTER_ID</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 <span class="nv">ALLOW_ORIGIN</span><span class="o">=</span><span class="s2">&quot;http://127.0.0.1:4200&quot;</span><span class="w">                    </span><span class="c1">#   跨域设置</span>
 <span class="nv">SMTP_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:42025&quot;</span><span class="w">                             </span><span class="c1">#   smtp 服务器监听地址</span>
 <span class="nv">SMTP_TLS_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1:42465&quot;</span><span class="w">                         </span><span class="c1">#   smtp tls服务器监听地址</span>
+<span class="nv">LOCAL_SMTP_DOMAIN</span><span class="o">=</span><span class="s2">&quot;work.example.com&quot;</span><span class="w">                    </span><span class="c1">#   本地smtp 域名 可以用于发送邮件到内部邮箱 不需要走公网 需要修改</span>
 <span class="nv">MEET_SERVER</span><span class="o">=</span><span class="s2">&quot;/&quot;</span><span class="w">                                         </span><span class="c1">#   会议服务器地址</span>
 <span class="nv">MEET_KEY</span><span class="o">=</span><span class="s2">&quot;changekeyandsecret&quot;</span><span class="w">                           </span><span class="c1"># * 需要修改 视频会议创建使用的key</span>
 <span class="nv">MEET_SECRET</span><span class="o">=</span><span class="s2">&quot;c7056e2x9689f7f3ecx8c6e4055c4bc565dc9c5a&quot;</span><span class="w">  </span><span class="c1"># * 需要修改 视频会议创建使用的secret</span>
@@ -84,6 +87,9 @@
 <span class="nv">AI_TOKEN</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="w">                                             </span><span class="c1">#  需要修改 AI token</span>
 <span class="nv">AI_MODEL</span><span class="o">=</span><span class="s2">&quot;deepseek-chat&quot;</span><span class="w">                                </span><span class="c1">#  需要修改 AI模型</span>
 <span class="nv">AI_TYPE</span><span class="o">=</span><span class="s2">&quot;deepseek&quot;</span><span class="w">                                      </span><span class="c1">#  需要修改 AI类型</span>
+<span class="nv">TYPESENSE_ADDR</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="w">                              </span><span class="c1">#   typesense 监听地址</span>
+<span class="nv">TYPESENSE_PORT</span><span class="o">=</span><span class="s2">&quot;48108&quot;</span><span class="w">                                  </span><span class="c1">#   typesense 监听端口</span>
+<span class="nv">TYPESENSE_KEY</span><span class="o">=</span><span class="s2">&quot;a31a010f7199530c1a16b83b7168ea40&quot;</span><span class="w">        </span><span class="c1">#   typesense 密钥 需要修改</span>
 </pre></div>
 </div>
 </section>
@@ -96,7 +102,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+              <img class="logo" src="_static/logo.png" alt="Logo of BindOffice"/>
             </a></p>
 <search id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -118,13 +124,13 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">env config content</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2019-2024, Hedwi.
-      Last updated on 2026-03-22 22:26:14.
+    &#169; Copyright 2019-2026, Geci, Inc.
+      Last updated on 2026-03-31 17:38:19.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>

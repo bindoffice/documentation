@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>docker部署 &#8212; Hedwi work suite  documentation</title>
+    <title>docker部署 &#8212; BindOffice  documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d75fae25" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=c21daf79" />
     
@@ -36,7 +36,7 @@
         <li class="right" >
           <a href="important.html" title="重要更新"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">docker部署</a></li> 
       </ul>
     </div>  
@@ -50,11 +50,11 @@
 <span id="docker-install"></span><span id="help-docker-install"></span><h1>docker部署<a class="headerlink" href="#docker-deploy" title="Link to this heading">¶</a></h1>
 <section id="about">
 <h2>关于<a class="headerlink" href="#about" title="Link to this heading">¶</a></h2>
-<p>To be the best self-hosted work suite</p>
+<p>致力于成为最好的自托管办公套件和google workspace的替代品。</p>
 </section>
 <section id="requirements">
 <h2>0. 环境要求<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h2>
-<p>Minimum 4G memory 2 cores CPU 64-bit Linux system</p>
+<p>Minimum 4G memory 2 cores CPU linux 64-bit operating system</p>
 </section>
 <section id="configure-dns">
 <h2>1. 配置DNS<a class="headerlink" href="#configure-dns" title="Link to this heading">¶</a></h2>
@@ -118,13 +118,19 @@ cp<span class="w"> </span>env.example<span class="w"> </span>.env
 </pre></div>
 </div>
 <div class="line-block">
-<div class="line">Modify the .env configuration, modify all variables marked with 'Need modify'</div>
+<div class="line">修改.env配置文件，修改所有标记为'需修改'的变量</div>
 </div>
-<blockquote>
-<div><p>make</p>
-</div></blockquote>
 <div class="line-block">
-<div class="line">运行之后,80端口可以访问。应该可以通过 <a class="reference external" href="http://work.example.com">http://work.example.com</a> 访问</div>
+<div class="line"># 生成一个自签名SSL证书，稍后将被免费证书替换</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>openssl
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">After running, http 80 port can be accessed, should be able to access <a class="reference external" href="http://work.example.com(work.example.com">http://work.example.com(work.example.com</a> is the domain name used)</div>
 <div class="line">本服务会自动创建管理员账号（根据配置文件中的邮箱和密码）用于配置系统、添加用户、团队等等，还有一个普通用户账户admin&#64;你的域名，用于使用服务</div>
 </div>
 <p><a class="reference external" href="./env-example.html">配置文件示例</a></p>
@@ -145,8 +151,14 @@ cp<span class="w"> </span>env.example<span class="w"> </span>.env
 <div class="line-block">
 <div class="line">停止所有运行的docker容器</div>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>down
+</pre></div>
+</div>
 <div class="line-block">
 <div class="line">启动docker容器</div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
 </div>
 </section>
 <section id="use-https-to-access-and-login">
@@ -163,7 +175,7 @@ cp<span class="w"> </span>env.example<span class="w"> </span>.env
       <div class="sphinxsidebar" role="navigation" aria-label="Main">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
-              <img class="logo" src="_static/logo.png" alt="Logo of Hedwi work suite"/>
+              <img class="logo" src="_static/logo.png" alt="Logo of BindOffice"/>
             </a></p>
   <div>
     <h3><a href="index.html">Table of Contents</a></h3>
@@ -218,13 +230,13 @@ cp<span class="w"> </span>env.example<span class="w"> </span>.env
         <li class="right" >
           <a href="important.html" title="重要更新"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Hedwi work suite  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">BindOffice  documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">docker部署</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-    &#169; Copyright 2019-2024, Hedwi.
-      Last updated on 2026-03-22 22:26:13.
+    &#169; Copyright 2019-2026, Geci, Inc.
+      Last updated on 2026-03-31 17:38:17.
       Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
     </div>
   </body>

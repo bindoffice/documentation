@@ -10,12 +10,12 @@ docker deploy
 About
 ======================
 
-To be the best self-hosted work suite
+To be the best self-hosted office suite and google workspace alternative.
 
 
 0. Requirements
 =====================
-Minimum 4G memory 2 cores CPU 64-bit Linux system
+Minimum 4G memory 2 cores CPU linux 64-bit operating system
 
 1. configure DNS
 ===============================================
@@ -74,9 +74,20 @@ For example:
 
 | Modify the .env configuration, modify all variables marked with 'Need modify'
 
-  make  
+| # Generate a self-signed SSL certificate and will be replaced by the free certificate later
 
-| After running, http 80 port can be accessed, should be able to access http://configured domain name
+.. code-block:: bash
+
+
+  make openssl 
+  
+
+.. code-block:: bash
+
+  make
+
+
+| After running, http 80 port can be accessed, should be able to access http://work.example.com(work.example.com is the domain name used)
 | The service will automatically create an administrator account (for configuring the system, adding users, adding teams, etc.) and a normal user account admin@your domain name (for using the system service)
 
 `Configuration file example <./env-example.html>`_
@@ -99,11 +110,13 @@ For example:
 | Stop all running docker containers
 
 .. code-block:: bash
+
   make down 
 
 | Start docker containers
 
 .. code-block:: bash
+
   make 
 
 6. Use https to access and login
